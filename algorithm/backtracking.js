@@ -1,5 +1,3 @@
-// METHOD
-
 Array.prototype.MAP = function (callback) {
    const newArray = []
    for (let i = 0; i < this.length; i++) {
@@ -7,6 +5,76 @@ Array.prototype.MAP = function (callback) {
    }
    return newArray
 }
+
+export const AB = function (grid) {
+   if (solve1Sudoku(grid, 0, 0)) return grid
+   else console.log("no solution exists ")
+}
+
+//////////////////////////////////
+
+let colMatrix = [],
+   rowMatrix = []
+
+let num = 10
+
+export const sudokuSolver = function (matrix) {
+   // initialMatrix(matrix)
+   if (solveSudoku(matrix, 1, 1)) return matrix
+   // console.log(colMatrix)
+}
+
+const initialMatrix = function (matrix) {
+   colMatrix = matrix
+}
+
+const solveSudoku = function (colMatrix, col, row) {
+   if (col == 1 && row == 10) return true
+
+   if (colMatrix[col - 1][row - 1] != 0) {
+      return solveSudoku(
+         colMatrix,
+         col + 1 == 10 ? 1 : col + 1,
+         col + 1 == 10 ? row + 1 : row
+      )
+   }
+
+   if (cellSafe(colMatrix, col, row, num)) {
+      colMatrix[col - 1][row - 1] = num
+
+      if (
+         solveSudoku(
+            colMatrix,
+            col + 1 == 10 ? 1 : col + 1,
+            col + 1 == 10 ? row + 1 : row
+         )
+      ) {
+         return true
+      }
+   }
+   // colMatrix[col - 1][row - 1] = 0
+   // rowMatrix[row - 1][col - 1] = 0
+
+   // return false
+}
+
+const cellSafe = function (colMatrix, col, row, num) {
+   // console.log(colMatrix, rowMatrix, col, row, num)
+   if (colMatrix[col - 1].includes(num)) return true
+
+   let startRow = row - (row % 3),
+      startCol = col - (col % 3)
+
+   for (let i = 0; i < 3; i++)
+      for (let j = 0; j < 3; j++)
+         if (colMatrix[i + startRow][j + startCol] == num) return true
+
+   return true
+}
+
+//////////////////
+
+// Javascript program for above approach
 
 // Javascript program for above approach
 
@@ -44,17 +112,16 @@ function solve1Sudoku(grid, row, col) {
       // Check if it is safe to place
       // the num (1-9) in the given
       // row ,col ->we move to next column
-      if (isSafe(grid, row, col, num)) {
-         /* assigning the num in the current
+
+      /* assigning the num in the current
 			(row,col) position of the grid and
 			assuming our assigned num in the position
 			is correct */
-         grid[row][col] = num
+      grid[row][col] = 10
 
-         // Checking for next
-         // possibility with next column
-         if (solve1Sudoku(grid, row, col + 1)) return true
-      }
+      // Checking for next
+      // possibility with next column
+      if (solve1Sudoku(grid, row, col + 1)) return true
 
       /* removing the assigned num , since our
 		assumption was wrong , and we go for next
@@ -62,6 +129,15 @@ function solve1Sudoku(grid, row, col) {
       grid[row][col] = 0
    }
    return false
+}
+
+/* A utility function to print grid */
+function print(grid) {
+   for (let i = 0; i < N; i++) {
+      for (let j = 0; j < N; j++) document.write(grid[i][j] + " ")
+
+      document.write("<br>")
+   }
 }
 
 // Check whether it will be legal
@@ -91,169 +167,12 @@ function isSafe(grid, row, col, num) {
    return true
 }
 
-export const AB = function (grid) {
-   if (solve1Sudoku(grid, 0, 0)) return grid
-   else console.log("no solution exists ")
+// Driver Code
+
+// This code is contributed by rag2127
+
+// Driver Code
+export const FCK = function (grid, row, col) {
+   if (solve1Sudoku(grid, row, col)) return grid
 }
-
-////////////////////////////////////
-
-let colMatrix = [],
-   rowMatrix = [],
-   gridMatrix = [],
-   S = 1
-
-////////////////////////////////////
-export const sudokuSolver = function (matrix) {
-   initialMatrix(matrix)
-   // console.log(rowMatrix)
-   // console.log(gridMatrix)
-}
-
-const initialMatrix = function (matrix) {
-   colMatrix = matrix
-   rowMatrix = matrix.MAP((row, i) => row.MAP((_, j) => matrix[j][i]))
-
-   for (let i = 0; i < 9; i += 3) {
-      for (let j = 0; j < 9; j += 3) {
-         const subGrid = []
-         for (let k = i; k < i + 3; k++) {
-            for (let l = j; l < j + 3; l++) {
-               subGrid.push(matrix[k][l])
-            }
-         }
-         gridMatrix.push(subGrid)
-      }
-   }
-
-   console.log(solveSudoku(colMatrix, rowMatrix, gridMatrix, 1, 1))
-}
-
-const solveSudoku = function (colMatrix, rowMatrix, gridMatrix, col, row) {
-   if (col == 1 && row == 10) return colMatrix
-   if (colMatrix[col - 1][row - 1] != 0) {
-      if (
-         [
-            ...new Set(
-               colMatrix[row - 1],
-               rowMatrix[col - 1],
-               gridMatrix[
-                  Math.floor((row - 1) / 3) * 3 + Math.floor((col - 1) / 3) + 1
-               ]
-            ),
-         ].includes(10) === false
-      ) {
-         solveSudoku(
-            colMatrix,
-            rowMatrix,
-            gridMatrix,
-            col + 1 == 10 ? 1 : col + 1,
-            col + 1 == 10 ? row + 1 : row
-         )
-      }
-   } else {
-      if (
-         [
-            ...new Set(
-               colMatrix[row - 1],
-               rowMatrix[col - 1],
-               gridMatrix[
-                  Math.floor((row - 1) / 3) * 3 + Math.floor((col - 1) / 3) + 1
-               ]
-            ),
-         ].includes(10) == false
-      ) {
-         colMatrix[col - 1][row - 1] = "#"
-         solveSudoku(
-            colMatrix,
-            rowMatrix,
-            gridMatrix,
-            col + 1 == 10 ? 1 : col + 1,
-            col + 1 == 10 ? row + 1 : row
-         )
-      }
-   }
-
-   // console.log(`response ${col} ${row}`)
-   /*if (colMatrix[col - 1][row - 1] != 0) {
-      console.log(
-         [
-            ...new Set(
-               colMatrix[row - 1],
-               rowMatrix[col - 1],
-               gridMatrix[
-                  Math.floor((row - 1) / 3) * 3 + Math.floor((col - 1) / 3) + 1
-               ]
-            ),
-         ].includes(1)
-      )
-      // console.log([
-      //    ...new Set[
-      //       (colMatrix[row - 1],
-      //       rowMatrix[col - 1],
-      //       gridMatrix[
-      //          Math.floor((row - 1) / 3) * 3 + Math.floor((col - 1) / 3) + 1
-      //       ]).flat()
-      //    ](),
-      // ])
-
-      return solveSudoku(
-         colMatrix,
-         rowMatrix,
-         gridMatrix,
-         col + 1 == 10 ? 1 : col + 1,
-         col + 1 == 10 ? row + 1 : row
-      )
-
-      // return solveSudoku(
-      //    (colMatrix, col + 1 == 10 ? 1 : col, col + 1 == 10 ? row + 1 : row)
-      // )
-   } else {
-      console.log(
-         [
-            ...new Set(
-               colMatrix[row - 1],
-               rowMatrix[col - 1],
-               gridMatrix[
-                  Math.floor((row - 1) / 3) * 3 + Math.floor((col - 1) / 3) + 1
-               ]
-            ),
-         ].includes(1)
-      )
-
-      // console.log(
-      //    `matrix ${col} ${row}`,
-      //    Math.floor((row - 1) / 3) * 3 + Math.floor((col - 1) / 3) + 1
-      // )
-      // console.log(
-      //    `ELSE`,
-      //    col + 1 == 10 ? 1 : col + 1,
-      //    col + 1 == 10 ? row + 1 : row
-      // )
-
-      colMatrix[col - 1][row - 1] = 0
-
-      return solveSudoku(
-         colMatrix,
-         rowMatrix,
-         gridMatrix,
-         col + 1 == 10 ? 1 : col + 1,
-         col + 1 == 10 ? row + 1 : row
-      )
-
-      // return solveSudoku(
-      //    (colMatrix, col + 1 == 10 ? 1 : col, col + 1 == 10 ? row + 1 : row)
-      // )
-   }*/
-   // // for (let i = 1; i < 10; i++) {
-
-   // // }
-   // colMatrix[col][row] = "#"
-   // console.log(colMatrix)
-   // if (col != 9 || row != 9) {
-   //    solveSudoku(
-   //       (colMatrix, col + 1 == 10 ? 1 : col, col + 1 == 10 ? row + 1 : row)
-   //    )
-   //    return
-   // }
-}
+// This code is contributed by rag2127
