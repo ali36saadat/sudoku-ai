@@ -1,4 +1,4 @@
-import { SudokuSolver, FCK } from "./algorithm/backtracking.js"
+import { sudokuSolver, FCK } from "./algorithm/backtracking.js"
 
 // اینجا می‌توانید از توابع یا متغیرهایی که از فایل backtracking.js import کرده‌اید، استفاده کنید.
 
