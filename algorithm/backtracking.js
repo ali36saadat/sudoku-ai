@@ -1,179 +1,123 @@
-Array.prototype.MAP = function (callback) {
-   const newArray = []
-   for (let i = 0; i < this.length; i++) {
-      newArray.push(callback(this[i], i, this))
+export class SudokuSolver {
+   constructor() {
+      this.grid = []
    }
-   return newArray
-}
 
-export const AB = function (grid) {
-   if (solve1Sudoku(grid, 0, 0)) return grid
-   else console.log("no solution exists ")
-}
-
-//////////////////////////////////
-
-let colMatrix = []
-
-export const sudokuSolver = function (matrix) {
-   // initialMatrix(matrix)
-   if (solveSudoku(matrix, 1, 1)) return matrix
-   // console.log(colMatrix)
-}
-
-const solveSudoku = function (colMatrix, col, row) {
-   if (col == 1 && row == 10) return true
-
-   if (colMatrix[col - 1][row - 1] != 0) {
-      return solveSudoku(
-         colMatrix,
-         col + 1 == 10 ? 1 : col + 1,
-         col + 1 == 10 ? row + 1 : row
-      )
+   _setSudoku(grid, speed) {
+      this.grid = grid
+      this.speed = speed
    }
-   for (let num = 1; num < 10; num++) {
-      if (isSafe(colMatrix, col - 1, row - 1, num)) {
-         colMatrix[col - 1][row - 1] = num
 
-         // return solveSudoku(
-         //    colMatrix,
-         //    col + 1 == 10 ? 1 : col + 1,
-         //    col + 1 == 10 ? row + 1 : row
-         // )
+   _findEmptyCell(rowLoc, colLoc) {
+      let row = rowLoc,
+         col = colLoc
 
-         if (
-            solveSudoku(
-               colMatrix,
-               col + 1 == 10 ? 1 : col + 1,
-               col + 1 == 10 ? row + 1 : row
-            )
-         ) {
-            return true
+      if (col == 9) {
+         row++
+         col = 0
+      }
+
+      if (row == 9) {
+         // همه‌ی خانه‌ها بررسی شده و هیچ خانه‌ای خالی پیدا نشده است
+         return false
+      }
+
+      if (this.grid[row][col] == 0) {
+         return { row, col }
+      }
+
+      return this._findEmptyCell(row, col + 1)
+   }
+
+   _isValid(row, col, num) {
+      for (let j = 0; j < 9; j++) {
+         if (this.grid[j][col] == num || this.grid[row][j] == num) return false
+      }
+
+      let startRow = row - (row % 3),
+         startCol = col - (col % 3)
+
+      for (let i = 0; i < 3; i++)
+         for (let j = 0; j < 3; j++)
+            if (this.grid[i + startRow][j + startCol] == num) return false
+
+      return true
+   }
+
+   _solve(rowLoc, colLoc) {
+      let emptyCell = this._findEmptyCell(rowLoc, colLoc)
+
+      if (!emptyCell) return true
+
+      let { row, col } = emptyCell
+
+      for (let num = 1; num < 10; num++) {
+         if (this._isValid(row, col, num)) {
+            this.grid[row][col] = num
+            if (this._solve(row, col)) return true
+            this.grid[row][col] = 0
          }
       }
-
-      colMatrix[col - 1][row - 1] = 0
-      // rowMatrix[row - 1][col - 1] = 0
-   }
-   return false
-}
-
-function isSafe(grid, row, col, num) {
-   // Check row and column for duplicates
-   for (let i = 0; i < 9; i++) {
-      if (grid[row][i] === num || grid[i][col] === num) return false
+      return false
    }
 
-   // Check 3x3 subgrid for duplicates
-   let startRow = Math.floor(row / 3) * 3
-   let startCol = Math.floor(col / 3) * 3
-
-   for (let i = startRow; i < startRow + 3; i++) {
-      for (let j = startCol; j < startCol + 3; j++) {
-         if (grid[i][j] === num) return false
-      }
-   }
-
-   return true
-}
-
-const cellSafe = function (colMatrix, col, row, num) {
-   // console.log(colMatrix, rowMatrix, col, row, num)
-   // if (colMatrix[row].includes(num)) return false
-
-   for (let x = 0; x <= 8; x++) if (colMatrix[col][x] == num) return false
-
-   for (let x = 0; x <= 8; x++) if (colMatrix[x][row] == num) return false
-
-   let startRow = row - (row % 3),
-      startCol = col - (col % 3)
-
-   for (let i = 0; i < 3; i++)
-      for (let j = 0; j < 3; j++)
-         if (colMatrix[i + startRow][j + startCol] == num) return false
-
-   return true
-}
-
-//////////////////
-
-// Javascript program for above approach
-
-// Javascript program for above approach
-
-let N = 9
-
-/* Takes a partially filled-in grid and attempts
-    to assign values to all unassigned locations in
-    such a way to meet the requirements for
-    Sudoku solution (non-duplication across rows,
-    columns, and boxes) */
-export function solve1Sudoku(grid, row, col) {
-   /* If we have reached the 8th
-       row and 9th column (0
-       indexed matrix) ,
-       we are returning true to avoid further
-       backtracking       */
-   if (row == N - 1 && col == N) return true
-
-   // Check if column value  becomes 9 ,
-   // we move to next row
-   // and column start from 0
-   if (col == N) {
-      row++
-      col = 0
-   }
-
-   // Check if the current position
-   // of the grid already
-   // contains value >0, we iterate
-   // for next column
-   if (grid[row][col] != 0) return solve1Sudoku(grid, row, col + 1)
-
-   for (let num = 1; num < 10; num++) {
-      // Check if it is safe to place
-      // the num (1-9)  in the given
-      // row ,col ->we move to next column
-      if (isSafe(grid, row, col, num)) {
-         /*  assigning the num in the current
-            (row,col)  position of the grid and
-            assuming our assigned num in the position
-            is correct */
-         grid[row][col] = num
-         // return solve1Sudoku(grid, row, col + 1)
-
-         // Checking for next
-         // possibility with next column
-         if (solve1Sudoku(grid, row, col + 1)) return true
-      }
-
-      /* removing the assigned num , since our
-           assumption was wrong , and we go for next
-           assumption with diff num value   */
-      grid[row][col] = 0
-   }
-   return false
-}
-
-/* A utility function to print grid */
-function print(grid) {
-   for (let i = 0; i < N; i++) {
-      for (let j = 0; j < N; j++) document.write(grid[i][j] + " ")
-
-      document.write("<br>")
+   _run() {
+      return this._solve(0, 0) ? this.grid : false
    }
 }
 
-// Check whether it will be legal
-// to assign num to the
-// given row, col
-
-// Driver Code
-
-// This code is contributed by rag2127
-
-// Driver Code
-export const FCK = function (grid, row, col) {
-   if (solve1Sudoku(grid, row, col)) return grid
+export const setSudokuGrid = function (grid, speed) {
+   sudokuGrid._setSudoku(grid, 0)
+   return sudokuGrid._run(grid)
 }
-// This code is contributed by rag2127
+
+const sudokuGrid = new SudokuSolver()
+
+// export const sudokuSolver = function (grid) {
+// const findEmptyCell = function (rowLoc) {
+//    for (let row = rowLoc; row < 9; row++) {
+//       for (let col = 0; col < 9; col++) {
+//          // if (!grid[i][j]) return { i, j }
+//          if (!grid[row][col]) return { row, col }
+//       }
+//    }
+//    return false
+// }
+
+//    const isValid = function (row, col, num) {
+//       for (let j = 0; j < 9; j++) {
+//          if (grid[j][col] == num || grid[row][j] == num) return false
+//       }
+//       return isValidSubgrid(row, col, num)
+//    }
+
+//    const isValidSubgrid = function (row, col, num) {
+//       let startRow = row - (row % 3),
+//          startCol = col - (col % 3)
+
+//       for (let i = 0; i < 3; i++)
+//          for (let j = 0; j < 3; j++)
+//             if (grid[i + startRow][j + startCol] == num) return false
+
+//       return true
+//    }
+
+//    const solve = function (rowLoc) {
+//       let emptyCell = findEmptyCell(rowLoc)
+
+//       if (!emptyCell) return true
+
+//       let { row, col } = emptyCell
+
+//       for (let num = 1; num < 10; num++) {
+//          if (isValid(row, col, num)) {
+//             grid[row][col] = num
+//             if (solve(row)) return true
+//             grid[row][col] = 0
+//          }
+//       }
+//       return false
+//    }
+
+//    return solve(0) ? grid : false
+// }

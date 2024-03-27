@@ -12,7 +12,7 @@
          <!--  START LEFT SIDE  -->
          <div class="col-span-2 h-screen w-full bg-orange-400">
             <!--  GENERATE SECTION  -->
-            <div class="flex flex-col items-center py-4 text-white">
+            <div class="flex flex-col items-center py-3 text-white">
                <h3 class="text-5xl text-stroke-3 pb-3">Generator</h3>
                <div
                   class="grid grid-cols-3 w-full justify-items-center items-center difficulty__buttons">
@@ -54,10 +54,10 @@
             </div>
 
             <!--  GENERATE SECTION  -->
-            <div class="flex flex-col items-center py-4 text-white">
-               <h3 class="text-5xl text-stroke-3 pb-8">Solver</h3>
+            <div class="flex flex-col items-center py-3 text-white">
+               <h3 class="text-5xl text-stroke-3 pb-6">Solver</h3>
                <div
-                  class="grid grid-cols-2 grid-rows-2 justify-items-center items-center w-full algorithm__buttons">
+                  class="grid grid-cols-2 grid-rows-2 gap-y-3 justify-items-center items-center w-full algorithm__buttons">
                   <button
                      class="grid grid-cols-5 bg-gray-500 text-sm w-64 h-6 content-center items-center my-3 shadow__algorithm algorithm__button algorithm__form__button algorithm__button--active"
                      title="backtracking">
@@ -65,7 +65,13 @@
                         class="col-span-1 w-16"
                         src="images/Tick.png"
                         alt="" />
-                     <span class="col-span-4">Backtracking</span>
+                     <span class="col-span-4 relative">
+                        Backtracking
+                        <div
+                           class="absolute bg-gray-500 right-0 mr-4 p-1 shadow-difficulty-title">
+                           Simple
+                        </div>
+                     </span>
                   </button>
                   <button
                      class="grid grid-cols-5 bg-gray-500 text-sm w-64 h-6 content-center items-center my-3 shadow__algorithm algorithm__button algorithm__form__button"
@@ -74,25 +80,29 @@
                         class="col-span-1 w-16"
                         src="images/Tick.png"
                         alt="" />
-                     <span class="col-span-4">Backtracking</span>
+                     <span class="col-span-4 relative">
+                        Backtracking
+                        <div
+                           class="absolute bg-gray-500 right-0 mr-4 pb-1 px-1 shadow-difficulty-title">
+                           Fast
+                        </div>
+                     </span>
+                  </button>
+                  <button
+                     class="grid grid-cols-5 bg-gray-700 text-sm w-64 h-6 content-center items-center my-3 shadow__algorithm algorithm__button algorithm__form__button"
+                     title="backtracking"
+                     disabled>
+                     <span class="col-span-5">soon...</span>
                   </button>
                   <button
                      class="grid grid-cols-5 bg-gray-500 text-sm w-64 h-6 content-center items-center my-3 shadow__algorithm algorithm__button algorithm__form__button"
-                     title="backtracking">
+                     title="backtracking"
+                     disabled>
                      <img
                         class="col-span-1 w-16"
                         src="images/Tick.png"
                         alt="" />
-                     <span class="col-span-4">Backtracking</span>
-                  </button>
-                  <button
-                     class="grid grid-cols-5 bg-gray-500 text-sm w-64 h-6 content-center items-center my-3 shadow__algorithm algorithm__button algorithm__form__button"
-                     title="backtracking">
-                     <img
-                        class="col-span-1 w-16"
-                        src="images/Tick.png"
-                        alt="" />
-                     <span class="col-span-4">Backtracking</span>
+                     <span class="col-span-4">...</span>
                   </button>
                   <button
                      class="col-span-2 bg-sky-400 text-2xl w-64 h-12 content-center items-center mt-9 shadow-submit solve__button algorithm__form__button"
@@ -129,8 +139,25 @@
             <div
                class="grid grid-cols-10 grid-rows-10 w-fit gap-x-4 gap-y-6 justify-items-center sudoku__table mx-auto">
                <div class="bg-red-400 text-sm w-full">100</div>
-               <div class="col-span-9 bg-red-400 w-full">A</div>
-               <div class="row-span-9 bg-red-400 w-full"></div>
+               <div
+                  class="grid grid-cols-9 gap-x-4 col-span-9 bg-gray-300 w-full">
+                  <img
+                     src="./images/PointerIcon.png"
+                     class="w-9 h-9 rotate-90"
+                     alt="" />
+                  <img src="" alt="" />
+                  <img src="" alt="" />
+                  <img src="" alt="" />
+                  <img src="" alt="" />
+                  <img src="" alt="" />
+                  <img src="" alt="" />
+                  <img src="" alt="" />
+                  <img src="" alt="" />
+               </div>
+               <div
+                  class="grid grid-rows-9 gap-y-6 row-span-9 bg-red-400 w-full">
+                  A
+               </div>
                <input class="sudoku__cell" type="text" title="col-1 row-1" />
                <input class="sudoku__cell" type="text" title="col-1 row-1" />
                <input class="sudoku__cell" type="text" title="col-1 row-1" />

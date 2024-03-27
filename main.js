@@ -1,4 +1,4 @@
-import { sudokuSolver, FCK } from "./algorithm/backtracking.js"
+import { setSudokuGrid } from "./algorithm/backtracking.js"
 
 // اینجا می‌توانید از توابع یا متغیرهایی که از فایل backtracking.js import کرده‌اید، استفاده کنید.
 
@@ -13,16 +13,17 @@ const btnSolve = document.querySelector(".solve__button")
 const sudokuTable = document.querySelector(".sudoku__table")
 const sudokuCells = document.querySelectorAll(".sudoku__cell")
 let sudokuCellsValue = [
-   [8, 0, 0, 0, 0, 0, 0, 0, 0],
-   [0, 0, 3, 6, 0, 0, 0, 0, 0],
-   [0, 7, 0, 0, 9, 0, 2, 0, 0],
-   [0, 5, 0, 0, 0, 7, 0, 0, 0],
-   [0, 0, 0, 0, 4, 5, 7, 0, 0],
-   [0, 0, 0, 1, 0, 0, 0, 3, 0],
-   [0, 0, 1, 0, 0, 0, 0, 6, 8],
-   [0, 0, 8, 5, 0, 0, 0, 1, 0],
-   [0, 9, 0, 0, 0, 0, 4, 0, 0],
+   [0, 0, 0, 9, 0, 4, 0, 0, 0],
+   [0, 0, 0, 7, 0, 6, 3, 0, 0],
+   [0, 0, 0, 0, 0, 0, 0, 0, 0],
+   [0, 5, 0, 0, 0, 7, 6, 0, 0],
+   [0, 0, 0, 5, 0, 0, 4, 9, 3],
+   [8, 4, 0, 0, 6, 0, 1, 5, 0],
+   [9, 0, 0, 0, 0, 3, 0, 0, 4],
+   [0, 1, 0, 6, 8, 0, 0, 0, 0],
+   [5, 7, 0, 0, 9, 0, 0, 0, 6],
 ]
+
 ////////////////
 
 //////////
@@ -89,9 +90,9 @@ algorithmForm.addEventListener("click", function (e) {
    if (btnSolve == btnClick) {
       console.time("executionTime")
       // applyResponse(FCK(sudokuCellsValue, 0, 0))
-      console.log(FCK(sudokuCellsValue, 0, 0))
+      // console.log(FCK(sudokuCellsValue, 0, 0))
       // console.log(sudokuSolver(sudokuCellsValue))
-      // applyResponse(sudokuSolver(sudokuCellsValue).flat())
+      applyResponse(setSudokuGrid(sudokuCellsValue).flat())
       console.timeEnd("executionTime")
       return
    }

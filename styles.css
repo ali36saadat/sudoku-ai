@@ -26,6 +26,9 @@
 
 * {
    font-family: "CrossyFont";
+   -webkit-user-select: none;
+   user-select: none;
+   -webkit-user-drag: none;
 }
 
 .text-stroke-3 {
@@ -164,4 +167,9 @@
 
 .shadow-break {
    box-shadow: 0 1px #000000, 1px 0px #000000, 0px -1px#000000, -1px 0px #000000;
+}
+
+.shadow-difficulty-title {
+   box-shadow: 0 2px var(--color-gray-1), -2px 0px var(--color-gray-1),
+      2px 0px var(--color-gray-1);
 }
