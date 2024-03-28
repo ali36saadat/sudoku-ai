@@ -10,10 +10,10 @@
    <body>
       <div class="grid grid-cols-5 justify-items-center">
          <!--  START LEFT SIDE  -->
-         <div class="col-span-2 h-screen w-full bg-orange-400">
+         <div class="col-span-2 h-screen w-full left__side">
             <!--  GENERATE SECTION  -->
             <div class="flex flex-col items-center py-3 text-white">
-               <h3 class="text-5xl text-stroke-3 pb-3">Generator</h3>
+               <h3 class="text-4xl text-stroke-3 pb-3">Generator</h3>
                <div
                   class="grid grid-cols-3 w-full justify-items-center items-center difficulty__buttons">
                   <button
@@ -44,20 +44,51 @@
                      <span class="col-span-3">Hard</span>
                   </button>
                   <button
-                     class="col-span-3 text-2xl w-64 h-12 content-center items-center mt-9 shadow-submit submit__button difficulty__form__button"
+                     class="col-span-3 text-2xl w-64 h-12 content-center items-center mt-9 shadow-submit submit__button difficulty__form__button relative"
                      title="Submit Difficulty">
                      Generate
+                     <div></div>
+                     <!-- <button class="absolute w-8 h-8 mt-9 help__generator">
+                        <img src="./images/questionIcon.png" alt="" />
+                     </button> -->
                   </button>
+                  <!-- <div
+                     class="col-span-5 grid grid-cols-7 w-72 h-9 mt-9 bg-red-500 justify-items-center">
+                     <span class="col-span-2 text-md">Input</span>
+                     <input
+                        class="col-span-4 w-full text-black"
+                        type="text"
+                        name="gridInput"
+                        id="gridInput"
+                        title="gridInput" />
+                     <button
+                        class="alibutton"
+                        allow="clipboard-read; clipboard-write">
+                        <img
+                           class="w-8 h-8"
+                           src="./images/questionIcon.png"
+                           alt="" />
+                     </button>
+                  </div> -->
+                  <div
+                     class="col-span-3 mt-5 grid grid-cols-5 text-black h-6 items-center content-center justify-items-center bg-white shadow__switch">
+                     <span class="col-span-2 text-sm">Input</span>
+                     <label class="switch col-span-1">
+                        <input type="checkbox" />
+                        <span class="slider"></span>
+                     </label>
+                     <span class="col-span-2 text-sm">Button</span>
+                  </div>
                </div>
 
-               <div class="w-96 h-1 bg-black mt-12 shadow-break"></div>
+               <div class="w-96 h-1 bg-white mt-12 shadow-break"></div>
             </div>
 
             <!--  GENERATE SECTION  -->
-            <div class="flex flex-col items-center py-3 text-white">
-               <h3 class="text-5xl text-stroke-3 pb-6">Solver</h3>
+            <div class="flex flex-col items-center py-2 text-white">
+               <h3 class="text-5xl text-stroke-3 pb-2">Solver</h3>
                <div
-                  class="grid grid-cols-2 grid-rows-2 gap-y-3 justify-items-center items-center w-full algorithm__buttons">
+                  class="grid grid-cols-2 grid-rows-2 justify-items-center items-center w-full algorithm__buttons">
                   <button
                      class="grid grid-cols-5 bg-gray-500 text-sm w-64 h-6 content-center items-center my-3 shadow__algorithm algorithm__button algorithm__form__button algorithm__button--active"
                      title="backtracking">
@@ -65,98 +96,171 @@
                         class="col-span-1 w-16"
                         src="images/Tick.png"
                         alt="" />
-                     <span class="col-span-4 relative">
-                        Backtracking
-                        <div
-                           class="absolute bg-gray-500 right-0 mr-4 p-1 shadow-difficulty-title">
-                           Simple
-                        </div>
-                     </span>
+                     <span class="col-span-4 relative">Backtracking</span>
                   </button>
                   <button
-                     class="grid grid-cols-5 bg-gray-500 text-sm w-64 h-6 content-center items-center my-3 shadow__algorithm algorithm__button algorithm__form__button"
-                     title="backtracking">
-                     <img
-                        class="col-span-1 w-16"
-                        src="images/Tick.png"
-                        alt="" />
-                     <span class="col-span-4 relative">
-                        Backtracking
-                        <div
-                           class="absolute bg-gray-500 right-0 mr-4 pb-1 px-1 shadow-difficulty-title">
-                           Fast
-                        </div>
-                     </span>
-                  </button>
-                  <button
-                     class="grid grid-cols-5 bg-gray-700 text-sm w-64 h-6 content-center items-center my-3 shadow__algorithm algorithm__button algorithm__form__button"
+                     class="grid grid-cols-5 bg-gray-700 text-sm w-64 h-6 content-center items-center my-3 shadow__algorithm-disable algorithm__button algorithm__form__button"
                      title="backtracking"
                      disabled>
                      <span class="col-span-5">soon...</span>
                   </button>
                   <button
-                     class="grid grid-cols-5 bg-gray-500 text-sm w-64 h-6 content-center items-center my-3 shadow__algorithm algorithm__button algorithm__form__button"
-                     title="backtracking"
-                     disabled>
-                     <img
-                        class="col-span-1 w-16"
-                        src="images/Tick.png"
-                        alt="" />
-                     <span class="col-span-4">...</span>
-                  </button>
-                  <button
-                     class="col-span-2 bg-sky-400 text-2xl w-64 h-12 content-center items-center mt-9 shadow-submit solve__button algorithm__form__button"
+                     class="col-span-2 bg-sky-400 text-2xl w-64 h-12 content-center items-center mt-6 shadow-submit solve__button algorithm__form__button"
                      title="Submit Difficulty">
                      Solve
                   </button>
+                  <div
+                     class="col-span-3 mt-5 grid grid-cols-7 text-black h-6 items-center content-center justify-items-center bg-white shadow__switch">
+                     <span class="col-span-4">Speed</span>
+                     <button
+                        class="bg-sky-400 w-6 h-6 col-span-1 shadow__speed">
+                        <img src="./images/minusIcon.png" alt="" />
+                     </button>
+                     <input
+                        class="w-full col-span-1 text-sky-400 text-2xl mx-auto"
+                        type="text"
+                        name="speedNumber"
+                        id="speedNumber"
+                        value="2" />
+                     <button
+                        class="bg-sky-400 w-6 h-6 col-span-1 shadow__speed">
+                        <img src="./images/plusIcon.png" alt="" />
+                     </button>
+                  </div>
                </div>
-               <div class="w-96 h-1 bg-black mt-12 shadow-break"></div>
+               <div class="w-96 h-1 bg-white mt-12 shadow-break"></div>
             </div>
 
             <!--  SOCIAL MEDIA  -->
             <div
                class="flex flex-row items-center justify-center py-4 text-white">
                <button
-                  class="col-span-3 text-2xl w-9 h-8 mx-3 content-center items-center shadow-submit submit__button difficulty__form__button"
-                  title="X">
-                  <img src="./images/linkedinIcon.png" alt="" />
+                  class="col-span-3 text-2xl w-10 h-8 mx-3 content-center items-center shadow__github"
+                  title="Github">
+                  <img
+                     src="./images/githubIcon.png"
+                     class="w-9 h-9 mx-auto"
+                     alt="github icon" />
                </button>
                <button
-                  class="col-span-3 text-2xl w-9 h-8 mx-3 content-center items-center shadow-submit submit__button difficulty__form__button"
+                  class="col-span-3 text-2xl w-10 h-8 mx-3 content-center items-center shadow__x"
                   title="X">
-                  <img src="./images/xIcon.png" alt="" />
+                  <img
+                     src="./images/xIcon.png"
+                     class="w-9 h-9 mx-auto"
+                     alt="x icon" />
                </button>
             </div>
          </div>
          <!--  END LEFT SIDE  -->
 
          <!--  START RIGHT SIDE  -->
-         <div class="col-span-3 h-screen w-full bg-lime-500 game__section">
+         <div class="col-span-3 h-screen w-full right__side game__section">
             <img
                src="./images/Soduko AI Logo.png"
                class="w-36 absolute"
                alt="" />
             <div
                class="grid grid-cols-10 grid-rows-10 w-fit gap-x-4 gap-y-6 justify-items-center sudoku__table mx-auto">
-               <div class="bg-red-400 text-sm w-full">100</div>
                <div
-                  class="grid grid-cols-9 gap-x-4 col-span-9 bg-gray-300 w-full">
-                  <img
-                     src="./images/PointerIcon.png"
-                     class="w-9 h-9 rotate-90"
-                     alt="" />
-                  <img src="" alt="" />
-                  <img src="" alt="" />
-                  <img src="" alt="" />
-                  <img src="" alt="" />
-                  <img src="" alt="" />
-                  <img src="" alt="" />
-                  <img src="" alt="" />
-                  <img src="" alt="" />
+                  class="text-sm h-8 text-white pt-1 text-center bg-gray-500 mt-1 w-full shadow__counter">
+                  100
                </div>
                <div
-                  class="grid grid-rows-9 gap-y-6 row-span-9 bg-red-400 w-full">
-                  A
+                  class="grid grid-cols-9 gap-x-4 col-span-9 h-8 mt-1 bg-gray-500 w-full shadow__col__pointer">
+                  <img
+                     src="./images/PointerIcon.png"
+                     class="w-9 h-9 rotate-90 -mt-1"
+                     alt="pointer"
+                     id="pointerRow-1" />
+                  <img
+                     src="./images/PointerIcon.png"
+                     class="w-9 h-9 rotate-90 -mt-1 invisible"
+                     alt="pointer"
+                     id="pointerRow-1" />
+                  <img
+                     src="./images/PointerIcon.png"
+                     class="w-9 h-9 rotate-90 -mt-1 invisible"
+                     alt="pointer"
+                     id="pointerRow-1" />
+                  <img
+                     src="./images/PointerIcon.png"
+                     class="w-9 h-9 rotate-90 -mt-1 invisible"
+                     alt="pointer"
+                     id="pointerRow-1" />
+                  <img
+                     src="./images/PointerIcon.png"
+                     class="w-9 h-9 rotate-90 -mt-1 invisible"
+                     alt="pointer"
+                     id="pointerRow-1" />
+                  <img
+                     src="./images/PointerIcon.png"
+                     class="w-9 h-9 rotate-90 -mt-1 invisible"
+                     alt="pointer"
+                     id="pointerRow-1" />
+                  <img
+                     src="./images/PointerIcon.png"
+                     class="w-9 h-9 rotate-90 -mt-1 invisible"
+                     alt="pointer"
+                     id="pointerRow-1" />
+                  <img
+                     src="./images/PointerIcon.png"
+                     class="w-9 h-9 rotate-90 -mt-1 invisible"
+                     alt="pointer"
+                     id="pointerRow-1" />
+                  <img
+                     src="./images/PointerIcon.png"
+                     class="w-9 h-9 rotate-90 -mt-1 invisible"
+                     alt="pointer"
+                     id="pointerRow-1" />
+               </div>
+               <div
+                  class="grid grid-rows-9 gap-y-6 row-span-9 bg-gray-500 w-full shadow__row__pointer">
+                  <img
+                     src="./images/PointerIcon.png"
+                     class="w-9 h-9"
+                     alt="pointer"
+                     id="pointerRow-1" />
+                  <img
+                     src="./images/PointerIcon.png"
+                     class="w-9 h-9 invisible"
+                     alt="pointer"
+                     id="pointerRow-1" />
+                  <img
+                     src="./images/PointerIcon.png"
+                     class="w-9 h-9 invisible"
+                     alt="pointer"
+                     id="pointerRow-1" />
+                  <img
+                     src="./images/PointerIcon.png"
+                     class="w-9 h-9 invisible"
+                     alt="pointer"
+                     id="pointerRow-1" />
+                  <img
+                     src="./images/PointerIcon.png"
+                     class="w-9 h-9 invisible"
+                     alt="pointer"
+                     id="pointerRow-1" />
+                  <img
+                     src="./images/PointerIcon.png"
+                     class="w-9 h-9 invisible"
+                     alt="pointer"
+                     id="pointerRow-1" />
+                  <img
+                     src="./images/PointerIcon.png"
+                     class="w-9 h-9 invisible"
+                     alt="pointer"
+                     id="pointerRow-1" />
+                  <img
+                     src="./images/PointerIcon.png"
+                     class="w-9 h-9 invisible"
+                     alt="pointer"
+                     id="pointerRow-1" />
+                  <img
+                     src="./images/PointerIcon.png"
+                     class="w-9 h-9 invisible"
+                     alt="pointer"
+                     id="pointerRow-1" />
                </div>
                <input class="sudoku__cell" type="text" title="col-1 row-1" />
                <input class="sudoku__cell" type="text" title="col-1 row-1" />

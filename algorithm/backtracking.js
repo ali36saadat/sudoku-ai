@@ -17,14 +17,9 @@ export class SudokuSolver {
          col = 0
       }
 
-      if (row == 9) {
-         // همه‌ی خانه‌ها بررسی شده و هیچ خانه‌ای خالی پیدا نشده است
-         return false
-      }
+      if (row == 9) return false
 
-      if (this.grid[row][col] == 0) {
-         return { row, col }
-      }
+      if (this.grid[row][col] == 0) return { row, col }
 
       return this._findEmptyCell(row, col + 1)
    }
@@ -67,8 +62,12 @@ export class SudokuSolver {
 }
 
 export const setSudokuGrid = function (grid, speed) {
+   console.time("simple")
    sudokuGrid._setSudoku(grid, 0)
-   return sudokuGrid._run(grid)
+   sudokuGrid._run(grid)
+   // console.log(grid)
+   console.timeEnd("simple")
+   // return sudokuGrid._run(grid)
 }
 
 const sudokuGrid = new SudokuSolver()

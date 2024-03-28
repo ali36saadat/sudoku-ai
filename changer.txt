@@ -1,0 +1,6 @@
+.shadow__row__pointer {
+   box-shadow: 0px 4px var(--color-pointer-3), 4px 0px var(--color-pointer-3),
+      -4px 0px var(--color-pointer-3), 0px -4px var(--color-pointer-3),
+      -4px -4px var(--color-pointer-3), 0px -8px var(--color-pointer-3),
+      4px -4px var(--color-pointer-3);
+}

@@ -1,7 +1,5 @@
 import { setSudokuGrid } from "./algorithm/backtracking.js"
 
-// اینجا می‌توانید از توابع یا متغیرهایی که از فایل backtracking.js import کرده‌اید، استفاده کنید.
-
 ///////////////////////////////
 
 const algorithmForm = document.querySelector(".algorithm__buttons")
@@ -13,15 +11,15 @@ const btnSolve = document.querySelector(".solve__button")
 const sudokuTable = document.querySelector(".sudoku__table")
 const sudokuCells = document.querySelectorAll(".sudoku__cell")
 let sudokuCellsValue = [
-   [0, 0, 0, 9, 0, 4, 0, 0, 0],
-   [0, 0, 0, 7, 0, 6, 3, 0, 0],
-   [0, 0, 0, 0, 0, 0, 0, 0, 0],
-   [0, 5, 0, 0, 0, 7, 6, 0, 0],
-   [0, 0, 0, 5, 0, 0, 4, 9, 3],
-   [8, 4, 0, 0, 6, 0, 1, 5, 0],
-   [9, 0, 0, 0, 0, 3, 0, 0, 4],
-   [0, 1, 0, 6, 8, 0, 0, 0, 0],
-   [5, 7, 0, 0, 9, 0, 0, 0, 6],
+   [8, 0, 0, 0, 0, 0, 0, 0, 0],
+   [0, 0, 3, 6, 0, 0, 0, 0, 0],
+   [0, 7, 0, 0, 9, 0, 2, 0, 0],
+   [0, 5, 0, 0, 0, 7, 0, 0, 0],
+   [0, 0, 0, 0, 4, 5, 7, 0, 0],
+   [0, 0, 0, 1, 0, 0, 0, 3, 0],
+   [0, 0, 1, 0, 0, 0, 0, 6, 8],
+   [0, 0, 8, 5, 0, 0, 0, 1, 0],
+   [0, 9, 0, 0, 0, 0, 4, 0, 0],
 ]
 
 ////////////////
@@ -34,7 +32,8 @@ let sudokuApiUrl = `https://sugoku.onrender.com/board?difficulty=easy`
 
 ////////////////
 
-const applyResponse = function (sudokuArray) {
+const applyResponse = function () {
+   const sudokuArray = sudokuCellsValue.flat()
    sudokuCells.forEach((cell, index) => {
       cell.value = sudokuArray[index] == 0 ? "" : sudokuArray[index]
    })
@@ -62,8 +61,9 @@ difficultyForm.addEventListener("click", function (e) {
             // Handle the fetched Sudoku data (puzzle and solution)
             // console.log("Fetched Sudoku puzzle:", data)
             sudokuCellsValue = data.board
+            console.log(data.board)
             // console.log(sudokuCellsValue)
-            applyResponse(data.board.flat())
+            applyResponse()
             // You can now process the data.data (puzzle) and data.solution for your application's needs.
          })
          .catch((error) => {
@@ -88,12 +88,8 @@ algorithmForm.addEventListener("click", function (e) {
    if (!btnClick) return
 
    if (btnSolve == btnClick) {
-      console.time("executionTime")
-      // applyResponse(FCK(sudokuCellsValue, 0, 0))
-      // console.log(FCK(sudokuCellsValue, 0, 0))
-      // console.log(sudokuSolver(sudokuCellsValue))
-      applyResponse(setSudokuGrid(sudokuCellsValue).flat())
-      console.timeEnd("executionTime")
+      setSudokuGrid(sudokuCellsValue)
+      applyResponse()
       return
    }
 
@@ -105,3 +101,36 @@ algorithmForm.addEventListener("click", function (e) {
 })
 
 applyResponse(sudokuCellsValue.flat())
+
+//////////////////////////
+
+document.querySelector(".alibutton").addEventListener("click", function () {
+   if (!navigator.clipboard) {
+      console.log("محتوایی برای چاپ وجود ندارد!")
+      return
+   }
+
+   // دریافت محتوای کپی شده
+   navigator.clipboard.read().then((data) => {
+      // بررسی نوع محتوای کپی شده
+      console.log(data)
+   })
+})
+
+const lineToGrid = function (line) {
+   const gridArray = []
+   const lineArray = line.split("").map((c) => (c == "." ? 0 : Number(c)))
+   for (let row = 0; row < 9; row++) {
+      let rowArray = []
+      for (let col = 0; col < 9; col++) {
+         rowArray.push(lineArray.shift())
+      }
+      gridArray.push(rowArray)
+   }
+   sudokuCellsValue = gridArray
+   applyResponse()
+}
+
+// lineToGrid(
+//    "...916.8....2.5.......7.....284..9....1...26..96....1..17.94..6....2..9..5...81.."
+// )

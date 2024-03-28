@@ -11,6 +11,28 @@
 
    --color-white: #ffffff;
    --color-gray-1: #6b7280;
+   --color-gray-2: #f3f4f6;
+   --color-gray-7: #374151;
+
+   --color-github-1: #a855f7;
+   --color-github-2: #9333ea;
+   --color-github-3: #7e22ce;
+   --color-github-4: #6b21a8;
+
+   --color-x-1: #6b7280;
+   --color-x-2: #4b5563;
+   --color-x-3: #374151;
+   --color-x-4: #1f2937;
+
+   --color-information-1: #9bf39c;
+   --color-information-2: #38e739;
+   --color-information-3: #2cb82d;
+   --color-information-4: #218a22;
+
+   --color-pointer-1: #f3f4f6;
+   --color-pointer-2: #6b7280;
+   --color-pointer-3: #4b5563;
+   --color-pointer-4: #374151;
 }
 
 /* FONTS */
@@ -31,8 +53,13 @@
    -webkit-user-drag: none;
 }
 
+input {
+   outline: none;
+   text-align: center;
+}
+
 .text-stroke-3 {
-   -webkit-text-stroke: 3px black;
+   -webkit-text-stroke: 2px black;
 }
 
 .shadow-easy {
@@ -109,7 +136,6 @@
 }
 
 .sudoku__table input {
-   outline: none;
    width: 40px;
    height: 36px;
    background-color: var(--color-submit-2);
@@ -165,11 +191,236 @@
       0px -4px var(--color-gray-1), -4px 0px var(--color-gray-1);
 }
 
+.shadow__algorithm-disable {
+   box-shadow: 0 4px var(--color-gray-7), 4px 0px var(--color-gray-7),
+      0px -4px var(--color-gray-7), -4px 0px var(--color-gray-7);
+}
+
 .shadow-break {
-   box-shadow: 0 1px #000000, 1px 0px #000000, 0px -1px#000000, -1px 0px #000000;
+   box-shadow: 0 1px var(--color-white), 1px 0px var(--color-white),
+      0px -1px var(--color-white), -1px 0px var(--color-white);
 }
 
 .shadow-difficulty-title {
    box-shadow: 0 2px var(--color-gray-1), -2px 0px var(--color-gray-1),
       2px 0px var(--color-gray-1);
+}
+
+.shadow__github {
+   outline: none;
+   width: 40px;
+   background-color: var(--color-github-2);
+   box-shadow: 0px 4px var(--color-github-2), 4px 0px var(--color-github-2),
+      -4px 0px var(--color-github-2), 0px -4px var(--color-github-2),
+      0px 8px var(--color-github-3), 4px 4px var(--color-github-3),
+      -4px 4px var(--color-github-3), 0 12px var(--color-white),
+      4px 12px var(--color-white), -4px 4px var(--color-white),
+      -4px -4px var(--color-github-2), 0px -8px var(--color-github-2),
+      4px -4px var(--color-github-2), -4px -8px var(--color-github-1),
+      4px -8px var(--color-github-1), 8px 4px var(--color-white),
+      8px 8px var(--color-white), -8px 8px var(--color-white),
+      -4px 12px var(--color-white), -8px 4px var(--color-white),
+      -8px 0px var(--color-white), -4px 8px var(--color-white),
+      8px -4px var(--color-white), -8px -4px var(--color-white),
+      8px 0px var(--color-white), 0px -12px var(--color-github-1);
+}
+
+.shadow__github:active {
+   background-color: var(--color-github-3);
+   box-shadow: 4px 4px var(--color-github-3), -4px 4px var(--color-github-3),
+      0px 4px var(--color-github-3), 4px 0px var(--color-github-4),
+      -4px 0px var(--color-github-4), 0px -4px var(--color-github-4),
+      0px 8px var(--color-github-3), 4px 4px var(--color-github-4),
+      -4px 4px var(--color-github-4), 0 12px var(--color-white),
+      4px 12px var(--color-white), -4px 4px var(--color-white),
+      -4px -4px var(--color-white), 0px -8px var(--color-white),
+      4px -4px var(--color-white), -4px -8px var(--color-white),
+      4px -8px var(--color-white), 8px 4px var(--color-white),
+      8px 8px var(--color-white), -8px 8px var(--color-white),
+      -4px 12px var(--color-white), -8px 4px var(--color-white),
+      -8px 0px var(--color-white), -4px 8px var(--color-white),
+      8px -4px var(--color-white), -8px -4px var(--color-white),
+      8px 0px var(--color-white);
+   padding-top: 4px;
+}
+
+.shadow__x {
+   outline: none;
+   width: 40px;
+   background-color: var(--color-x-2);
+   box-shadow: 0px 4px var(--color-x-2), 4px 0px var(--color-x-2),
+      -4px 0px var(--color-x-2), 0px -4px var(--color-x-2),
+      0px 8px var(--color-x-3), 4px 4px var(--color-x-3),
+      -4px 4px var(--color-x-3), 0 12px var(--color-white),
+      4px 12px var(--color-white), -4px 4px var(--color-white),
+      -4px -4px var(--color-x-2), 0px -8px var(--color-x-2),
+      4px -4px var(--color-x-2), -4px -8px var(--color-x-1),
+      4px -8px var(--color-x-1), 8px 4px var(--color-white),
+      8px 8px var(--color-white), -8px 8px var(--color-white),
+      -4px 12px var(--color-white), -8px 4px var(--color-white),
+      -8px 0px var(--color-white), -4px 8px var(--color-white),
+      8px -4px var(--color-white), -8px -4px var(--color-white),
+      8px 0px var(--color-white), 0px -12px var(--color-x-1);
+}
+
+.shadow__x:active {
+   background-color: var(--color-x-3);
+   box-shadow: 4px 4px var(--color-x-3), -4px 4px var(--color-x-3),
+      0px 4px var(--color-x-3), 4px 0px var(--color-x-4),
+      -4px 0px var(--color-x-4), 0px -4px var(--color-x-4),
+      0px 8px var(--color-x-3), 4px 4px var(--color-x-4),
+      -4px 4px var(--color-x-4), 0 12px var(--color-white),
+      4px 12px var(--color-white), -4px 4px var(--color-white),
+      -4px -4px var(--color-white), 0px -8px var(--color-white),
+      4px -4px var(--color-white), -4px -8px var(--color-white),
+      4px -8px var(--color-white), 8px 4px var(--color-white),
+      8px 8px var(--color-white), -8px 8px var(--color-white),
+      -4px 12px var(--color-white), -8px 4px var(--color-white),
+      -8px 0px var(--color-white), -4px 8px var(--color-white),
+      8px -4px var(--color-white), -8px -4px var(--color-white),
+      8px 0px var(--color-white);
+   padding-top: 4px;
+}
+
+.left__side {
+   background-image: url("./images/Back02.png");
+   background-size: 360px;
+}
+
+.right__side {
+   background-image: url("./images/Back01.png");
+   background-size: 360px;
+}
+
+.switch {
+   position: relative;
+   display: inline-block;
+   width: 54px;
+   height: 28px;
+}
+
+.switch input {
+   opacity: 0;
+   width: 0;
+   height: 0;
+}
+
+.slider {
+   position: absolute;
+   cursor: pointer;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-color: var(--color-submit-2);
+   -webkit-transition: 0.4s;
+   transition: 0.4s;
+
+   box-shadow: 0px -2px var(--color-submit-2), 0px 2px var(--color-submit-2),
+      2px 0px var(--color-submit-2), -2px 0px var(--color-submit-2);
+}
+
+.slider:before {
+   box-shadow: 0px -2px var(--color-white), 0px 2px var(--color-white),
+      2px 0px var(--color-white), -2px 0px var(--color-white);
+   position: absolute;
+   content: "";
+   height: 20px;
+   width: 20px;
+   left: 4px;
+   bottom: 4px;
+   background-color: white;
+   -webkit-transition: 0.4s;
+   transition: 0.4s;
+}
+
+input:checked + .slider:before {
+   -webkit-transform: translateX(26px);
+   -ms-transform: translateX(26px);
+   transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+   border-radius: 34px;
+}
+
+.slider.round:before {
+   border-radius: 50%;
+}
+
+.help__generator {
+   outline: none;
+   width: 40px;
+   background-color: var(--color-information-2);
+   box-shadow: 0px 3px var(--color-information-2),
+      3px 0px var(--color-information-2), -3px 0px var(--color-information-2),
+      0px -3px var(--color-information-2), 0px 6px var(--color-information-3),
+      3px 3px var(--color-information-3), -3px 3px var(--color-information-3),
+      0 9px var(--color-white), 3px 9px var(--color-white),
+      -3px 3px var(--color-white), -3px -3px var(--color-information-2),
+      0px -6px var(--color-information-2), 3px -3px var(--color-information-2),
+      -3px -6px var(--color-information-1), 3px -6px var(--color-information-1),
+      6px 3px var(--color-white), 6px 6px var(--color-white),
+      -6px 6px var(--color-white), -3px 9px var(--color-white),
+      -6px 3px var(--color-white), -6px 0px var(--color-white),
+      -3px 6px var(--color-white), 6px -3px var(--color-white),
+      -6px -3px var(--color-white), 6px 0px var(--color-white),
+      0px -9px var(--color-information-1);
+   margin-left: 340px;
+}
+
+.help__generator:active {
+   background-color: var(--color-information-3);
+   box-shadow: 3px 3px var(--color-information-3),
+      -3px 3px var(--color-information-3), 0px 3px var(--color-information-3),
+      3px 0px var(--color-information-4), -3px 0px var(--color-information-4),
+      0px -3px var(--color-information-4), 0px 6px var(--color-information-3),
+      3px 3px var(--color-information-4), -3px 3px var(--color-information-4),
+      0 9px var(--color-white), 3px 9px var(--color-white),
+      -3px 3px var(--color-white), -3px -3px var(--color-white),
+      0px -6px var(--color-white), 3px -3px var(--color-white),
+      -3px -6px var(--color-white), 3px -6px var(--color-white),
+      6px 3px var(--color-white), 6px 6px var(--color-white),
+      -6px 6px var(--color-white), -3px 9px var(--color-white),
+      -6px 3px var(--color-white), -6px 0px var(--color-white),
+      -3px 6px var(--color-white), 6px -3px var(--color-white),
+      -6px -3px var(--color-white), 6px 0px var(--color-white);
+   padding-top: 3px;
+}
+
+.shadow__switch {
+   box-shadow: 0px -8px var(--color-white), 0px 8px var(--color-white),
+      4px -8px var(--color-white), 4px 4px var(--color-white),
+      -4px -8px var(--color-white), -4px 4px var(--color-white);
+   width: 255px;
+}
+
+.shadow__speed {
+   box-shadow: 0px -2px var(--color-submit-2), 0px 2px var(--color-submit-2),
+      2px 0px var(--color-submit-2), -2px 0px var(--color-submit-2);
+}
+
+.shadow__col__pointer {
+   box-shadow: 0px 4px var(--color-pointer-2), 4px 0px var(--color-pointer-2),
+      -4px 0px var(--color-pointer-2), 0px -4px var(--color-pointer-2),
+      -4px -4px var(--color-pointer-3), 0px -8px var(--color-pointer-3),
+      4px -4px var(--color-pointer-3), -4px -8px var(--color-pointer-4),
+      0px -12px var(--color-pointer-4), 4px -8px var(--color-pointer-4);
+}
+
+.shadow__row__pointer {
+   box-shadow: 0px 4px var(--color-pointer-2), 4px 0px var(--color-pointer-2),
+      -4px 0px var(--color-pointer-2), 0px -4px var(--color-pointer-2),
+      -4px -4px var(--color-pointer-3), 0px -8px var(--color-pointer-3),
+      4px -4px var(--color-pointer-3), -4px -8px var(--color-pointer-4),
+      0px -12px var(--color-pointer-4), 4px -8px var(--color-pointer-4);
+}
+
+.shadow__counter {
+   box-shadow: 0px 4px var(--color-pointer-2), 4px 0px var(--color-pointer-2),
+      -4px 0px var(--color-pointer-2), 0px -4px var(--color-pointer-2),
+      -4px -4px var(--color-pointer-3), 0px -8px var(--color-pointer-3),
+      4px -4px var(--color-pointer-3), -4px -8px var(--color-pointer-4),
+      0px -12px var(--color-pointer-4), 4px -8px var(--color-pointer-4);
 }
