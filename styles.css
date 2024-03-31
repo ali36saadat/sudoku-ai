@@ -33,6 +33,8 @@
    --color-pointer-2: #6b7280;
    --color-pointer-3: #4b5563;
    --color-pointer-4: #374151;
+
+   --color-line-input: #22ddcd;
 }
 
 /* FONTS */
@@ -399,6 +401,13 @@ input:checked + .slider:before {
 .shadow__speed {
    box-shadow: 0px -2px var(--color-submit-2), 0px 2px var(--color-submit-2),
       2px 0px var(--color-submit-2), -2px 0px var(--color-submit-2);
+   background-color: var(--color-submit-2);
+}
+
+.shadow__speed:disabled {
+   box-shadow: 0px -2px var(--color-submit-4), 0px 2px var(--color-submit-4),
+      2px 0px var(--color-submit-4), -2px 0px var(--color-submit-4);
+   background-color: var(--color-submit-4);
 }
 
 .shadow__col__pointer {
@@ -423,4 +432,12 @@ input:checked + .slider:before {
       -4px -4px var(--color-pointer-3), 0px -8px var(--color-pointer-3),
       4px -4px var(--color-pointer-3), -4px -8px var(--color-pointer-4),
       0px -12px var(--color-pointer-4), 4px -8px var(--color-pointer-4);
+}
+
+.line__input {
+   box-shadow: 0px -8px var(--color-line-input), 0px 8px var(--color-line-input),
+      8px 0px var(--color-line-input), -8px 0px var(--color-line-input),
+      4px -4px var(--color-line-input), 4px 4px var(--color-line-input),
+      -4px 4px var(--color-line-input), -4px -4px var(--color-line-input);
+   background-color: var(--color-line-input);
 }
