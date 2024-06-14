@@ -67,5 +67,5 @@ const sudokuGrid = new BacktrackingSudokuSolver()
 
 export const setSudokuGrid = function (grid) {
    sudokuGrid._setSudoku(grid, 0)
-   return sudokuGrid._solve(0, 0) ? grid : false
+   return sudokuGrid._solve(0, 0) ? [grid, true] : [grid, false]
 }

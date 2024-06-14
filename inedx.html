@@ -12,39 +12,55 @@
          <!--  START LEFT SIDE  -->
          <div class="col-span-2 h-screen w-full left__side">
             <!--  GENERATE SECTION  -->
-            <div class="flex flex-col items-center py-3 text-white">
+            <div class="flex flex-col items-center pt-2 text-white">
                <h3 class="text-4xl text-stroke-3 pb-3">Generator</h3>
                <div
                   class="grid grid-cols-3 w-full justify-items-center items-center difficulty__buttons">
+                  <!-- <button
+                     class="bg-green-400 text-sm w-24 h-6 text-center my-3 shadow-easy difficulty__button difficulty__form__button difficulty__button--active"
+                     title="simple">
+                     Simple
+                  </button>
                   <button
-                     class="grid grid-cols-5 bg-green-400 text-md w-44 h-6 content-center items-center my-3 shadow-easy difficulty__button difficulty__form__button difficulty__button--active"
+                     class="bg-green-400 text-sm w-24 h-6 text-center my-3 shadow-easy difficulty__button difficulty__form__button difficulty__button--active"
                      title="easy">
-                     <img
-                        class="col-span-2 w-16"
-                        src="images/BabyDuck.png"
-                        alt="" />
-                     <span class="col-span-3">Easy</span>
+                     Easy
                   </button>
                   <button
-                     class="grid grid-cols-5 bg-blue-400 text-md w-44 h-6 content-center items-center my-3 shadow-medium difficulty__button difficulty__form__button"
-                     title="medium">
-                     <img
-                        class="col-span-2 w-16"
-                        src="images/Duck.png"
-                        alt="" />
-                     <span class="col-span-3">Medium</span>
+                     class="bg-green-400 text-sm w-24 h-6 text-center my-3 shadow-easy difficulty__button difficulty__form__button difficulty__button--active"
+                     title="moderate">
+                     Moderate
                   </button>
                   <button
-                     class="= grid grid-cols-5 bg-red-400 text-md w-44 h-6 content-center items-center my-3 shadow-hard difficulty__button difficulty__form__button"
-                     title="hard">
-                     <img
-                        class="col-span-2 w-16"
-                        src="images/KingDuck.png"
-                        alt="" />
-                     <span class="col-span-3">Hard</span>
+                     class="bg-green-400 text-sm w-24 h-6 text-center my-3 shadow-easy difficulty__button difficulty__form__button difficulty__button--active"
+                     title="intermediate">
+                     Intermediate
                   </button>
+                  <button
+                     class="bg-green-400 text-sm w-24 h-6 text-center my-3 shadow-easy difficulty__button difficulty__form__button difficulty__button--active"
+                     title="expert">
+                     Expert
+                  </button> -->
                   <div
-                     class="col-span-5 grid grid-cols-6 w-72 h-6 my-3 justify-items-center line__input difficulty__button hidden">
+                     class="col-span-3 flex items-center bg-white difficulty__setter mt-3 mb-1">
+                     <button class="">
+                        <img
+                           class="w-4 h mr-2 difficulty__set__pre difficulty__form__button"
+                           src="/images/PreIcon.png"
+                           alt="next" />
+                     </button>
+                     <div class="w-48 h-8 text-center pt-1 difficulty__set">
+                        simple
+                     </div>
+                     <button>
+                        <img
+                           class="w-4 h ml-2 difficulty__set__next difficulty__form__button"
+                           src="/images/NextIcon.png"
+                           alt="pre" />
+                     </button>
+                  </div>
+                  <div
+                     class="col-span-5 grid grid-cols-6 w-72 h-6 my-3 justify-items-center line__input hidden">
                      <span class="col-span-2 text-md">Input</span>
                      <input
                         class="col-span-4 w-full text-black line__grid__input"
@@ -71,20 +87,20 @@
                            <span class="slider switch__button"></span>
                         </label>
                      </div>
-                     <span class="col-span-2 text-sm">Button</span>
+                     <span class="col-span-2 text-sm">API</span>
                   </div>
                </div>
 
-               <div class="w-96 h-1 bg-white mt-12 shadow-break"></div>
+               <div class="w-96 h-1 bg-white mt-8 shadow-break"></div>
             </div>
 
             <!--  GENERATE SECTION  -->
             <div class="flex flex-col items-center py-2 text-white">
-               <h3 class="text-4xl text-stroke-3 pb-2">Solver</h3>
+               <h3 class="text-4xl text-stroke-3 pt-2">Solver</h3>
                <div
                   class="grid grid-cols-2 grid-rows-2 justify-items-center items-center w-full algorithm__buttons">
                   <button
-                     class="grid grid-cols-5 bg-gray-500 text-sm w-64 h-6 content-center items-center my-3 shadow__algorithm algorithm__button algorithm__form__button algorithm__button--active"
+                     class="grid grid-cols-5 text-sm w-64 h-6 content-center items-center my-3 shadow__algorithm algorithm__button algorithm__form__button algorithm__button--active"
                      title="backtracking">
                      <img
                         class="col-span-1 w-16"
@@ -93,15 +109,27 @@
                      <span class="col-span-4 relative">Backtracking</span>
                   </button>
                   <button
-                     class="grid grid-cols-5 bg-gray-700 text-sm w-64 h-6 content-center items-center my-3 shadow__algorithm-disable algorithm__button algorithm__form__button"
-                     title="backtracking"
-                     disabled>
-                     <span class="col-span-5">soon...</span>
+                     class="grid grid-cols-5 text-sm w-64 h-6 content-center items-center my-3 shadow__algorithm algorithm__button algorithm__form__button"
+                     title="simulatedAnnealing">
+                     <img
+                        class="col-span-1 w-16"
+                        src="images/Tick.png"
+                        alt="" />
+                     <span class="col-span-4 relative text-xs">
+                        Simulated Annealing
+                     </span>
                   </button>
                   <button
-                     class="col-span-2 bg-sky-400 text-2xl w-64 h-12 content-center items-center mt-6 shadow-submit solve__button algorithm__form__button"
+                     class="col-span-2 bg-sky-400 text-2xl w-64 h-12 content-center items-center mt-6 ml-2 shadow-submit solve__button algorithm__form__button"
                      title="Submit Difficulty">
                      Solve
+                  </button>
+                  <button
+                     class="col-span-2 bg-white text-2xl w-10 h-12 content-center -mt-12 ml-80 algorithm__form__button trash__button">
+                     <img
+                        class="w-8 mx-auto"
+                        src="/images/trashIcon.png"
+                        alt="trash" />
                   </button>
                   <!-- <div
                      class="col-span-3 mt-5 grid grid-cols-7 text-black h-6 items-center content-center justify-items-center bg-white shadow__switch">
@@ -123,6 +151,7 @@
                      </button>
                   </div> -->
                </div>
+               <div class="w-96 h-1 bg-white mt-12 shadow-break"></div>
                <!-- <div class="w-96 h-1 bg-white mt-12 shadow-break"></div> -->
             </div>
 
@@ -146,6 +175,75 @@
                      alt="x icon" />
                </button>
             </div> -->
+            <div class="setting__buttons hidden">
+               <div class="flex flex-col items-center pt-2 text-white">
+                  <h3 class="text-4xl text-stroke-3 pb-3">Setting</h3>
+                  <div class="grid grid-cols-8 w-full justify-items-center">
+                     <div class="col-span-3 -mr-6">
+                        <div
+                           class="initial__temperature setting__option w-fit flex flex-row h-12">
+                           <div class="flex flex-col mr-2">
+                              <button
+                                 class="w-fit mb-1 mt-1 up__temp setting__form__button">
+                                 <img
+                                    class="w-4"
+                                    src="./images/UpIcon.png"
+                                    alt="upIcon" />
+                              </button>
+                              <button
+                                 class="w-4 mt-1 down__temp setting__form__button">
+                                 <img
+                                    class="w-4"
+                                    src="./images/DownIcon.png"
+                                    alt="downIcon" />
+                              </button>
+                           </div>
+                           <input
+                              type="number"
+                              class="w-36 h-10 my-auto bg-white text-black text-2xl input__temp"
+                              value="2.5" />
+                        </div>
+                        <div
+                           class="text-sm w-40 text-center mx-auto mt-2 text__temperature">
+                           temperature
+                        </div>
+                     </div>
+                     <div class="col-span-3 -ml-6">
+                        <div
+                           class="cooling__rate setting__option w-fit flex flex-row h-12">
+                           <div class="flex flex-col mr-2">
+                              <button
+                                 class="w-fit mb-1 mt-1 up__rate setting__form__button">
+                                 <img
+                                    class="w-4"
+                                    src="./images/UpIcon.png"
+                                    alt="upIcon" />
+                              </button>
+                              <button
+                                 class="w-4 mt-1 down__rate setting__form__button">
+                                 <img
+                                    class="w-4"
+                                    src="./images/DownIcon.png"
+                                    alt="downIcon" />
+                              </button>
+                           </div>
+                           <input
+                              type="number"
+                              class="w-36 h-10 my-auto bg-white text-black text-2xl input__rate"
+                              value="0.900" />
+                        </div>
+                        <div
+                           class="text-sm w-40 text-center mx-auto mt-2 text__temperature">
+                           cooling rate
+                        </div>
+                     </div>
+                     <button
+                        class="col-span-2 mt-2 mr-6 h-8 reset__button text-center setting__form__button w-28">
+                        reset
+                     </button>
+                  </div>
+               </div>
+            </div>
          </div>
          <!--  END LEFT SIDE  -->
 
@@ -663,11 +761,42 @@
                   title="col-9 row-9"
                   disabled />
             </div>
+            <div class="info__section flex flex-row w-fit mx-auto">
+               <div class="mx-auto w-fit mt-10 time__info">
+                  <div
+                     class="time__spend__text mb-3 mx-auto w-28 bg-white text-center">
+                     Time
+                  </div>
+                  <div
+                     class="time__spend__container w-32 h-8 text-center text-white">
+                     <span class="time__spend"></span>
+                     <span class="text-xs">ms</span>
+                  </div>
+               </div>
+               <div class="mx-auto w-fit mt-10 ml-24 iterations__info hidden">
+                  <div
+                     class="iterations__text mb-3 mx-auto w-40 bg-white text-center">
+                     Iterations
+                  </div>
+                  <div
+                     class="iterations__container w-44 h-8 text-center text-white"></div>
+               </div>
+               <div
+                  class="w-96 h-16 mx-auto mt-10 error__info grid grid-cols-5 bg-red-600 items-center px-3 hidden">
+                  <img
+                     class="w-12 h-fit my-auto"
+                     src="./images/DangerIcon.png"
+                     alt="DangerIcon" />
+
+                  <div
+                     class="error__text h-fit mx-auto text-center col-span-4 text-xs text-red-200"></div>
+               </div>
+            </div>
          </div>
          <!--  END RIGHT SIDE  -->
       </div>
 
-      <!--  SCRIP`TS  -->
+      <!--  SCRIPTS  -->
       <script src="main.js" type="module"></script>
    </body>
 </html>

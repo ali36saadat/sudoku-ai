@@ -1,5 +1,6 @@
 /* ROOT */
 :root {
+   --color-submit-0: #a4e0fc;
    --color-submit-1: #7dd3fc;
    --color-submit-2: #38bdf8;
    --color-submit-3: #0ea5e9;
@@ -9,14 +10,20 @@
    --color-difficulty-medium: #60a5fa;
    --color-difficulty-hard: #f87171;
 
+   --color-error-1: #ef4444;
+   --color-error-2: #dc2626;
+   --color-error-3: #b91c1c;
+
    --color-white: #ffffff;
    --color-gray-1: #6b7280;
-   --color-gray-2: #f3f4f6;
-   --color-gray-7: #374151;
+   --color-gray-2: #a4a4a4;
+   --color-gray-7: #36404e;
+   --color-gray-8: #242b36;
+   --color-gray-9: #1a1f27;
 
-   --color-github-1: #a855f7;
+   --color-github-1: #9b4ee4;
    --color-github-2: #9333ea;
-   --color-github-3: #7e22ce;
+   --color-github-3: #6f20b4;
    --color-github-4: #6b21a8;
 
    --color-x-1: #6b7280;
@@ -53,6 +60,11 @@
    -webkit-user-select: none;
    user-select: none;
    -webkit-user-drag: none;
+   input[type="number"]::-webkit-outer-spin-button,
+   input[type="number"]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+   }
 }
 
 input {
@@ -189,9 +201,26 @@ input {
 }
 
 .shadow__algorithm {
-   box-shadow: 0 4px var(--color-gray-1), 4px 0px var(--color-gray-1),
-      0px -4px var(--color-gray-1), -4px 0px var(--color-gray-1);
+   box-shadow: 0px 4px var(--color-gray-1), 4px 0px var(--color-gray-1),
+      -4px 0px var(--color-gray-1), 0px -4px var(--color-gray-1),
+      0px 8px var(--color-gray-7), 4px 4px var(--color-gray-7),
+      -4px -4px var(--color-gray-1), 0px -8px var(--color-gray-1),
+      4px -4px var(--color-gray-1), -4px -8px var(--color-gray-2),
+      0px -12px var(--color-gray-2);
+
+   background-color: var(--color-gray-1);
 }
+
+/* .algorithm__button--active {
+   box-shadow: 0px 4px var(--color-gray-8), 4px 0px var(--color-gray-8),
+      -4px 0px var(--color-gray-8), 0px -4px var(--color-gray-8),
+      0px 8px var(--color-gray-9), 4px 4px var(--color-gray-9),
+      -4px -4px var(--color-gray-8), 0px -8px var(--color-gray-8),
+      4px -4px var(--color-gray-8), -4px -8px var(--color-gray-7),
+      0px -12px var(--color-gray-7);
+
+   background-color: var(--color-gray-8);
+} */
 
 .shadow__algorithm-disable {
    box-shadow: 0 4px var(--color-gray-7), 4px 0px var(--color-gray-7),
@@ -434,10 +463,186 @@ input:checked + .slider:before {
       0px -12px var(--color-pointer-4), 4px -8px var(--color-pointer-4);
 }
 
+.difficulty__set {
+   box-shadow: 0px 4px var(--color-information-2),
+      4px 0px var(--color-information-2), -4px 0px var(--color-information-2),
+      0px -4px var(--color-information-2), 0px 8px var(--color-information-3),
+      4px 4px var(--color-information-3), -4px 4px var(--color-information-3),
+      0 12px var(--color-white), 4px 12px var(--color-white),
+      -4px 4px var(--color-white), -4px -4px var(--color-information-2),
+      0px -8px var(--color-information-2), 4px -4px var(--color-information-2),
+      -4px -8px var(--color-information-1), 4px -8px var(--color-information-1),
+      8px 4px var(--color-white), 8px 8px var(--color-white),
+      -8px 8px var(--color-white), -8px 0px var(--color-white),
+      -4px 8px var(--color-white), 8px -4px var(--color-white),
+      -8px -4px var(--color-white), 8px -4px var(--color-white),
+      -4px 12px var(--color-white), 8px 0px var(--color-white),
+      0px -12px var(--color-information-1);
+   background-color: var(--color-information-2);
+}
+
+.difficulty__set__next {
+   box-shadow: 4px 4px var(--color-white), 4px -4px var(--color-white),
+      -4px 4px var(--color-white), -4px -4px var(--color-white);
+}
+
+.difficulty__set__pre {
+   box-shadow: 4px 4px var(--color-white), 4px -4px var(--color-white),
+      -4px 4px var(--color-white), -4px -4px var(--color-white);
+}
+
+.trash__button {
+   box-shadow: 0px -4px var(--color-white), 0px 4px var(--color-white),
+      4px 0px var(--color-white);
+}
+
+.time__spend__container {
+   box-shadow: 0px 4px var(--color-information-2),
+      4px 0px var(--color-information-2), -4px 0px var(--color-information-2),
+      0px -4px var(--color-information-2), 0px 8px var(--color-information-3),
+      4px 4px var(--color-information-3), -4px 4px var(--color-information-3),
+      0 12px var(--color-white), 4px 12px var(--color-white),
+      -4px 4px var(--color-white), -4px -4px var(--color-information-2),
+      0px -8px var(--color-information-2), 4px -4px var(--color-information-2),
+      -4px -8px var(--color-information-1), 4px -8px var(--color-information-1),
+      8px 4px var(--color-white), 8px 8px var(--color-white),
+      -8px 8px var(--color-white), -8px 0px var(--color-white),
+      -4px 8px var(--color-white), 8px -4px var(--color-white),
+      -8px -4px var(--color-white), 8px -4px var(--color-white),
+      -4px 12px var(--color-white), 8px 0px var(--color-white),
+      0px -12px var(--color-information-1);
+   background-color: var(--color-information-2);
+}
+
+.time__spend__text {
+   box-shadow: 0px -4px var(--color-white), 4px 0px var(--color-white),
+      -4px 0px var(--color-white);
+}
+
+.iterations__text {
+   box-shadow: 0px -4px var(--color-white), 4px 0px var(--color-white),
+      -4px 0px var(--color-white);
+}
+
+.iterations__container {
+   box-shadow: 0px 4px var(--color-information-2),
+      4px 0px var(--color-information-2), -4px 0px var(--color-information-2),
+      0px -4px var(--color-information-2), 0px 8px var(--color-information-3),
+      4px 4px var(--color-information-3), -4px 4px var(--color-information-3),
+      0 12px var(--color-white), 4px 12px var(--color-white),
+      -4px 4px var(--color-white), -4px -4px var(--color-information-2),
+      0px -8px var(--color-information-2), 4px -4px var(--color-information-2),
+      -4px -8px var(--color-information-1), 4px -8px var(--color-information-1),
+      8px 4px var(--color-white), 8px 8px var(--color-white),
+      -8px 8px var(--color-white), -8px 0px var(--color-white),
+      -4px 8px var(--color-white), 8px -4px var(--color-white),
+      -8px -4px var(--color-white), 8px -4px var(--color-white),
+      -4px 12px var(--color-white), 8px 0px var(--color-white),
+      0px -12px var(--color-information-1);
+   background-color: var(--color-information-2);
+}
+
+.setting__option {
+   box-shadow: 0px -4px var(--color-github-2), 0px 4px var(--color-github-2),
+      4px 0px var(--color-github-2), -4px 0px var(--color-github-2),
+      -4px 4px var(--color-github-2), -4px -4px var(--color-github-2),
+      4px 4px var(--color-github-2), 4px -4px var(--color-github-2),
+      -8px 0px var(--color-github-2), -8px 4px var(--color-github-3),
+      -4px 8px var(--color-github-3), 4px 8px var(--color-github-3),
+      8px 0px var(--color-github-2), 8px 4px var(--color-github-3),
+      4px -8px var(--color-github-1), -4px -8px var(--color-github-1),
+      -8px -4px var(--color-github-1), 8px -4px var(--color-github-1);
+   background-color: var(--color-github-2);
+}
+
 .line__input {
-   box-shadow: 0px -8px var(--color-line-input), 0px 8px var(--color-line-input),
-      8px 0px var(--color-line-input), -8px 0px var(--color-line-input),
-      4px -4px var(--color-line-input), 4px 4px var(--color-line-input),
-      -4px 4px var(--color-line-input), -4px -4px var(--color-line-input);
-   background-color: var(--color-line-input);
+   box-shadow: 0px -4px var(--color-github-2), 0px 4px var(--color-github-2),
+      4px 0px var(--color-github-2), -4px 0px var(--color-github-2),
+      -4px 4px var(--color-github-2), -4px -4px var(--color-github-2),
+      4px 4px var(--color-github-2), 4px -4px var(--color-github-2),
+      -8px 0px var(--color-github-2), -8px 4px var(--color-github-3),
+      -4px 8px var(--color-github-3), 4px 8px var(--color-github-3),
+      8px 0px var(--color-github-2), 8px 4px var(--color-github-3),
+      4px -8px var(--color-github-1), -4px -8px var(--color-github-1),
+      -8px -4px var(--color-github-1), 8px -4px var(--color-github-1);
+   background-color: var(--color-github-2);
+}
+
+.text__temperature {
+   box-shadow: 4px 0px var(--color-github-3), -4px 0px var(--color-github-3),
+      0px 4px var(--color-github-3);
+   background-color: var(--color-github-3);
+}
+
+.reset__button {
+   box-shadow: 0px 4px var(--color-submit-2), 4px 0px var(--color-submit-2),
+      -4px 0px var(--color-submit-2), 0px -4px var(--color-submit-2),
+      0px 8px var(--color-submit-3), 4px 4px var(--color-submit-3),
+      -4px 4px var(--color-submit-3), 0 12px var(--color-white),
+      4px 12px var(--color-white), -4px 4px var(--color-white),
+      -4px -4px var(--color-submit-2), 0px -8px var(--color-submit-2),
+      4px -4px var(--color-submit-2), -4px -8px var(--color-submit-1),
+      4px -8px var(--color-submit-1), 8px 4px var(--color-white),
+      8px 8px var(--color-white), -8px 8px var(--color-white),
+      -4px 12px var(--color-white), -8px 4px var(--color-white),
+      -8px 0px var(--color-white), -4px 8px var(--color-white),
+      8px -4px var(--color-white), -8px -4px var(--color-white),
+      8px 0px var(--color-white), 0px -12px var(--color-submit-1);
+
+   background-color: var(--color-submit-2);
+}
+
+.reset__button:active {
+   background-color: var(--color-submit-3);
+   text-align: center;
+   box-shadow: 4px 4px var(--color-submit-3), -4px 4px var(--color-submit-3),
+      0px 4px var(--color-submit-3), 4px 0px var(--color-submit-4),
+      -4px 0px var(--color-submit-4), 0px -4px var(--color-submit-4),
+      0px 8px var(--color-submit-3), 4px 4px var(--color-submit-4),
+      -4px 4px var(--color-submit-4), 0 12px var(--color-white),
+      4px 12px var(--color-white), -4px 4px var(--color-white),
+      -4px -4px var(--color-white), 0px -8px var(--color-white),
+      4px -4px var(--color-white), -4px -8px var(--color-white),
+      4px -8px var(--color-white), 8px 4px var(--color-white),
+      8px 8px var(--color-white), -8px 8px var(--color-white),
+      -4px 12px var(--color-white), -8px 4px var(--color-white),
+      -8px 0px var(--color-white), -4px 8px var(--color-white),
+      8px -4px var(--color-white), -8px -4px var(--color-white),
+      8px 0px var(--color-white);
+   padding-top: 4px;
+}
+
+.sudoku__table .invalid {
+   width: 36px;
+   height: 36px;
+   background-color: var(--color-error-2);
+   text-align: center;
+   box-shadow: 4px 4px var(--color-error-2), -4px 4px var(--color-error-2),
+      0px 4px var(--color-error-2), 4px 0px var(--color-error-3),
+      -4px 0px var(--color-error-3), 0px -4px var(--color-error-3),
+      0px 8px var(--color-error-2), 4px 4px var(--color-error-3),
+      -4px 4px var(--color-error-3), 0 12px var(--color-white),
+      4px 12px var(--color-white), -4px 4px var(--color-white),
+      -4px -4px var(--color-white), 0px -8px var(--color-white),
+      4px -4px var(--color-white), -4px -8px var(--color-white),
+      4px -8px var(--color-white), 8px 4px var(--color-white),
+      8px 8px var(--color-white), -8px 8px var(--color-white),
+      -4px 12px var(--color-white), -8px 4px var(--color-white),
+      -8px 0px var(--color-white), -4px 8px var(--color-white),
+      8px -4px var(--color-white), -8px -4px var(--color-white),
+      8px 0px var(--color-white);
+   padding-top: 4px;
+   color: var(--color-white);
+}
+
+.error__info {
+   box-shadow: 0px -4px var(--color-error-2), 0px 4px var(--color-error-2),
+      4px 0px var(--color-error-2), -4px 0px var(--color-error-2),
+      -4px 4px var(--color-error-2), -4px -4px var(--color-error-2),
+      4px 4px var(--color-error-2), 4px -4px var(--color-error-2),
+      -8px 0px var(--color-error-2), -8px 4px var(--color-error-3),
+      -4px 8px var(--color-error-3), 4px 8px var(--color-error-3),
+      8px 0px var(--color-error-2), 8px 4px var(--color-error-3),
+      4px -8px var(--color-error-1), -4px -8px var(--color-error-1),
+      -8px -4px var(--color-error-1), 8px -4px var(--color-error-1);
 }
