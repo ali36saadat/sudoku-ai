@@ -178,6 +178,6 @@ def solveSudoku (sudoku):
     f.close()
     return(tmpSudoku)
 
-solution = solveSudoku(sudoku)
-print(CalculateNumberOfErrors(solution))
-PrintSudoku(solution)
+# solution = solveSudoku(sudoku)
+# print(CalculateNumberOfErrors(solution))
+# PrintSudoku(solution)

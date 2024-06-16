@@ -36,15 +36,15 @@ const iterationsInfo = document.querySelector(".iterations__info")
 const errorInfo = document.querySelector(".error__info")
 const timeInfo = document.querySelector(".time__info")
 let sudokuCellsValue = [
-      [0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [2, 0, 0, 0, 4, 0, 0, 8, 0],
-      [0, 3, 9, 7, 0, 0, 0, 2, 0],
-      [1, 0, 8, 0, 9, 0, 0, 0, 0],
-      [0, 2, 0, 0, 0, 0, 0, 4, 0],
-      [0, 0, 6, 0, 7, 0, 2, 0, 1],
-      [0, 0, 0, 0, 0, 0, 7, 6, 0],
-      [0, 6, 0, 9, 3, 0, 0, 1, 0],
-      [3, 7, 3, 0, 2, 8, 1, 0, 0],
+      [0, 0, 0, 5, 0, 9, 0, 0, 0],
+      [0, 1, 0, 0, 0, 0, 8, 0, 0],
+      [0, 6, 0, 0, 0, 0, 0, 0, 0],
+      [4, 0, 9, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 3, 0, 0, 1, 0],
+      [0, 0, 0, 0, 0, 0, 0, 7, 0],
+      [8, 0, 0, 0, 0, 0, 9, 0, 5],
+      [0, 0, 0, 2, 0, 0, 4, 0, 0],
+      [0, 0, 0, 7, 6, 0, 0, 0, 0],
    ],
    lineGridInput = false,
    algorithmNum = 0,
@@ -76,6 +76,7 @@ let randomRemoveList = [0, 10, 20, 35, 50, 55]
 
 const applyResponse = function () {
    const sudokuArray = sudokuCellsValue.flat()
+   console.log(...sudokuCellsValue.flat())
    sudokuCells.forEach((cell, index) => {
       cell.value = sudokuArray[index] == 0 ? "" : sudokuArray[index]
    })
@@ -444,3 +445,8 @@ const invalidSearch = function (n) {
 
    return false
 }
+
+// let text =
+//    "..6...4..7.3............15..6.1.92.42.1..69..5..32....1.....6...7964.5.2...2....."
+// let result = text.replace(/\./g, "0")
+// console.log(result)
