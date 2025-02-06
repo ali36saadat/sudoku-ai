@@ -1,15 +1,13 @@
 import { setSudokuGrid } from "./algorithm/backtracking.js"
 import { setSudokuGrid2 } from "./algorithm/simulatedAnnealing.js"
-// import { generateSudokuGrid } from "./generator/generator.js"
+import {generateSudokuLine} from "./algorithm/sudokuGenerator.js"
 
 const algorithmForm = document.querySelector(".algorithm__buttons")
 const settingForm = document.querySelector(".setting__buttons")
 const difficultyForm = document.querySelector(".difficulty__buttons")
-const difficultyButtons = document.querySelectorAll(".difficulty__button")
 const algorithmButtons = document.querySelectorAll(".algorithm__button")
 const btnSubmit = document.querySelector(".submit__button")
 const btnSolve = document.querySelector(".solve__button")
-const btnIncreaseSpeed = document.querySelector(".increase__button")
 const btnDecreaseSpeed = document.querySelector(".decrease__button")
 const sudokuTable = document.querySelector(".sudoku__table")
 const sudokuCells = document.querySelectorAll(".sudoku__cell")
@@ -126,18 +124,19 @@ difficultyForm.addEventListener("click", function (e) {
 
          inputLineGridInput.value = ""
       } else {
+         console.log(difficulty)
          const randomNum = randomRemoveNumber(difficulty)
-         let sudokuApiUrl = `https://ali36saadat-sudoku.liara.run/api/?delete=${randomNum}`
-         fetch(sudokuApiUrl)
-            .then((response) => response.text())
-            .then((data) => {
-               sudokuCellsValue = JSON.parse(data)
-               copyFunc(sudokuCellsValue)
-               applyResponse()
-            })
-            .catch((error) => {
-               console.error("Error:", error)
-            })
+         // let sudokuApiUrl = `https://ali36saadat-sudoku.liara.run/api/?delete=${randomNum}`
+         // fetch(sudokuApiUrl)
+         //    .then((response) => response.text())
+         //    .then((data) => {
+         //       sudokuCellsValue = JSON.parse(data)
+         //       copyFunc(sudokuCellsValue)
+         //       applyResponse()
+         //    })
+         //    .catch((error) => {
+         //       console.error("Error:", error)
+         //    })
          return
       }
 
@@ -446,7 +445,6 @@ const invalidSearch = function (n) {
    return false
 }
 
-// let text =
-//    "..6...4..7.3............15..6.1.92.42.1..69..5..32....1.....6...7964.5.2...2....."
-// let result = text.replace(/\./g, "0")
-// console.log(result)
+
+
+ 
