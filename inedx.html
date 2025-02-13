@@ -3,46 +3,20 @@
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Document</title>
+      <title>Sudoku AI JS</title>
       <script src="https://cdn.tailwindcss.com"></script>
       <link rel="stylesheet" href="styles.css" />
-      <!-- <link href="./output.css" rel="stylesheet" /> -->
    </head>
    <body>
       <div class="grid grid-cols-5 justify-items-center">
          <!--  START LEFT SIDE  -->
-         <div class="col-span-2 h-screen w-full left__side">
+         <div class="col-span-2 h-screen w-full left__side relative">
             <!--  GENERATE SECTION  -->
             <div class="flex flex-col items-center pt-2 text-white">
                <h3 class="text-4xl text-stroke-3 pb-3">Generator</h3>
                <div
                   class="grid grid-cols-3 w-full justify-items-center items-center difficulty__buttons">
-                  <!-- <button
-                     class="bg-green-400 text-sm w-24 h-6 text-center my-3 shadow-easy difficulty__button difficulty__form__button difficulty__button--active"
-                     title="simple">
-                     Simple
-                  </button>
-                  <button
-                     class="bg-green-400 text-sm w-24 h-6 text-center my-3 shadow-easy difficulty__button difficulty__form__button difficulty__button--active"
-                     title="easy">
-                     Easy
-                  </button>
-                  <button
-                     class="bg-green-400 text-sm w-24 h-6 text-center my-3 shadow-easy difficulty__button difficulty__form__button difficulty__button--active"
-                     title="moderate">
-                     Moderate
-                  </button>
-                  <button
-                     class="bg-green-400 text-sm w-24 h-6 text-center my-3 shadow-easy difficulty__button difficulty__form__button difficulty__button--active"
-                     title="intermediate">
-                     Intermediate
-                  </button>
-                  <button
-                     class="bg-green-400 text-sm w-24 h-6 text-center my-3 shadow-easy difficulty__button difficulty__form__button difficulty__button--active"
-                     title="expert">
-                     Expert
-                  </button> -->
-                  <div
+               <div
                      class="col-span-3 flex items-center bg-white difficulty__setter mt-3 mb-1">
                      <button class="">
                         <img
@@ -88,7 +62,7 @@
                            <span class="slider switch__button"></span>
                         </label>
                      </div>
-                     <span class="col-span-2 text-sm">API</span>
+                     <span class="col-span-2 text-sm">SCRIPT</span>
                   </div>
                </div>
 
@@ -132,50 +106,12 @@
                         src="/images/trashIcon.png"
                         alt="trash" />
                   </button>
-                  <!-- <div
-                     class="col-span-3 mt-5 grid grid-cols-7 text-black h-6 items-center content-center justify-items-center bg-white shadow__switch">
-                     <span class="col-span-4">Speed</span>
-                     <button
-                        class="w-6 h-6 col-span-1 shadow__speed decrease__button speed__button algorithm__form__button"
-                        disabled>
-                        <img src="./images/minusIcon.png" alt="" />
-                     </button>
-                     <input
-                        class="w-full col-span-1 text-sky-400 text-2xl mx-auto speed__counter"
-                        type="text"
-                        name="speedNumber"
-                        id="speedNumber"
-                        value="0" />
-                     <button
-                        class="w-6 h-6 col-span-1 shadow__speed increase__button speed__button algorithm__form__button">
-                        <img src="./images/plusIcon.png" alt="" />
-                     </button>
-                  </div> -->
                </div>
                <div class="w-96 h-1 bg-white mt-12 shadow-break"></div>
                <!-- <div class="w-96 h-1 bg-white mt-12 shadow-break"></div> -->
             </div>
 
-            <!--  SOCIAL MEDIA  -->
-            <!-- <div
-               class="flex flex-row items-center justify-center py-4 text-white">
-               <button
-                  class="col-span-3 text-2xl w-10 h-8 mx-3 content-center items-center shadow__github"
-                  title="Github">
-                  <img
-                     src="./images/githubIcon.png"
-                     class="w-9 h-9 mx-auto"
-                     alt="github icon" />
-               </button>
-               <button
-                  class="col-span-3 text-2xl w-10 h-8 mx-3 content-center items-center shadow__x"
-                  title="X">
-                  <img
-                     src="./images/xIcon.png"
-                     class="w-9 h-9 mx-auto"
-                     alt="x icon" />
-               </button>
-            </div> -->
+
             <div class="setting__buttons hidden">
                <div class="flex flex-col items-center pt-2 text-white">
                   <h3 class="text-4xl text-stroke-3 pb-3">Setting</h3>
@@ -245,6 +181,27 @@
                   </div>
                </div>
             </div>
+
+            <!--  SOCIAL MEDIA  -->
+            <div
+                        class="flex flex-row items-center justify-center py-4 text-white bottom-0 absolute w-full">
+                        <button
+                           class="col-span-3 text-2xl w-10 h-8 mx-3 content-center items-center shadow__github"
+                           title="Github">
+                           <img
+                              src="./images/githubIcon.png"
+                              class="w-9 h-9 mx-auto"
+                              alt="github icon" />
+                        </button>
+                        <button
+                           class="col-span-3 text-2xl w-10 h-8 mx-3 content-center items-center shadow__x"
+                           title="X">
+                           <img
+                              src="./images/xIcon.png"
+                              class="w-9 h-9 mx-auto"
+                              alt="x icon" />
+                        </button>
+            </div>
          </div>
          <!--  END LEFT SIDE  -->
 
@@ -256,106 +213,6 @@
                alt="" />
             <div
                class="grid grid-cols-9 grid-rows-9 w-fit gap-x-4 gap-y-6 justify-items-center sudoku__table mx-auto">
-               <!-- <div
-                  class="text-sm h-8 text-white pt-1 text-center bg-gray-500 mt-1 w-full shadow__counter">
-                  100
-               </div>
-               <div
-                  class="grid grid-cols-9 gap-x-4 col-span-9 h-8 mt-1 bg-gray-500 w-full shadow__col__pointer">
-                  <img
-                     src="./images/PointerIcon.png"
-                     class="w-9 h-9 rotate-90 -mt-1"
-                     alt="pointer"
-                     id="pointerRow-1" />
-                  <img
-                     src="./images/PointerIcon.png"
-                     class="w-9 h-9 rotate-90 -mt-1 invisible"
-                     alt="pointer"
-                     id="pointerRow-1" />
-                  <img
-                     src="./images/PointerIcon.png"
-                     class="w-9 h-9 rotate-90 -mt-1 invisible"
-                     alt="pointer"
-                     id="pointerRow-1" />
-                  <img
-                     src="./images/PointerIcon.png"
-                     class="w-9 h-9 rotate-90 -mt-1 invisible"
-                     alt="pointer"
-                     id="pointerRow-1" />
-                  <img
-                     src="./images/PointerIcon.png"
-                     class="w-9 h-9 rotate-90 -mt-1 invisible"
-                     alt="pointer"
-                     id="pointerRow-1" />
-                  <img
-                     src="./images/PointerIcon.png"
-                     class="w-9 h-9 rotate-90 -mt-1 invisible"
-                     alt="pointer"
-                     id="pointerRow-1" />
-                  <img
-                     src="./images/PointerIcon.png"
-                     class="w-9 h-9 rotate-90 -mt-1 invisible"
-                     alt="pointer"
-                     id="pointerRow-1" />
-                  <img
-                     src="./images/PointerIcon.png"
-                     class="w-9 h-9 rotate-90 -mt-1 invisible"
-                     alt="pointer"
-                     id="pointerRow-1" />
-                  <img
-                     src="./images/PointerIcon.png"
-                     class="w-9 h-9 rotate-90 -mt-1 invisible"
-                     alt="pointer"
-                     id="pointerRow-1" />
-               </div>
-               <div
-                  class="grid grid-rows-9 gap-y-6 row-span-9 bg-gray-500 w-full shadow__row__pointer">
-                  <img
-                     src="./images/PointerIcon.png"
-                     class="w-9 h-9"
-                     alt="pointer"
-                     id="pointerRow-1" />
-                  <img
-                     src="./images/PointerIcon.png"
-                     class="w-9 h-9 invisible"
-                     alt="pointer"
-                     id="pointerRow-1" />
-                  <img
-                     src="./images/PointerIcon.png"
-                     class="w-9 h-9 invisible"
-                     alt="pointer"
-                     id="pointerRow-1" />
-                  <img
-                     src="./images/PointerIcon.png"
-                     class="w-9 h-9 invisible"
-                     alt="pointer"
-                     id="pointerRow-1" />
-                  <img
-                     src="./images/PointerIcon.png"
-                     class="w-9 h-9 invisible"
-                     alt="pointer"
-                     id="pointerRow-1" />
-                  <img
-                     src="./images/PointerIcon.png"
-                     class="w-9 h-9 invisible"
-                     alt="pointer"
-                     id="pointerRow-1" />
-                  <img
-                     src="./images/PointerIcon.png"
-                     class="w-9 h-9 invisible"
-                     alt="pointer"
-                     id="pointerRow-1" />
-                  <img
-                     src="./images/PointerIcon.png"
-                     class="w-9 h-9 invisible"
-                     alt="pointer"
-                     id="pointerRow-1" />
-                  <img
-                     src="./images/PointerIcon.png"
-                     class="w-9 h-9 invisible"
-                     alt="pointer"
-                     id="pointerRow-1" />
-               </div> -->
                <input
                   class="sudoku__cell"
                   type="text"

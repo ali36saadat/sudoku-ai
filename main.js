@@ -1,6 +1,6 @@
 import { setSudokuGrid } from "./algorithm/backtracking.js"
 import { setSudokuGrid2 } from "./algorithm/simulatedAnnealing.js"
-import {generateSudokuLine} from "./algorithm/sudokuGenerator.js"
+import {sudokuSingleLineFunc} from "./algorithm/sudokuGenerator.js"
 
 const algorithmForm = document.querySelector(".algorithm__buttons")
 const settingForm = document.querySelector(".setting__buttons")
@@ -8,10 +8,7 @@ const difficultyForm = document.querySelector(".difficulty__buttons")
 const algorithmButtons = document.querySelectorAll(".algorithm__button")
 const btnSubmit = document.querySelector(".submit__button")
 const btnSolve = document.querySelector(".solve__button")
-const btnDecreaseSpeed = document.querySelector(".decrease__button")
-const sudokuTable = document.querySelector(".sudoku__table")
 const sudokuCells = document.querySelectorAll(".sudoku__cell")
-const inputSpeedCounter = document.querySelector(".speed__counter")
 const inputLineGridInput = document.querySelector(".line__grid__input")
 const inputLineInput = document.querySelector(".line__input")
 const btnSwitch = document.querySelector(".switch__button")
@@ -33,6 +30,7 @@ const textError = document.querySelector(".error__text")
 const iterationsInfo = document.querySelector(".iterations__info")
 const errorInfo = document.querySelector(".error__info")
 const timeInfo = document.querySelector(".time__info")
+
 let sudokuCellsValue = [
       [0, 0, 0, 5, 0, 9, 0, 0, 0],
       [0, 1, 0, 0, 0, 0, 8, 0, 0],
@@ -44,33 +42,23 @@ let sudokuCellsValue = [
       [0, 0, 0, 2, 0, 0, 4, 0, 0],
       [0, 0, 0, 7, 6, 0, 0, 0, 0],
    ],
+   copySudoku = [
+      [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [2, 0, 0, 0, 4, 0, 0, 8, 0],
+      [0, 3, 9, 7, 0, 0, 0, 2, 0],
+      [1, 0, 8, 0, 9, 0, 0, 0, 0],
+      [0, 2, 0, 0, 0, 0, 0, 4, 0],
+      [0, 0, 6, 0, 7, 0, 2, 0, 1],
+      [0, 0, 0, 0, 0, 0, 7, 6, 0],
+      [0, 6, 0, 9, 3, 0, 0, 1, 0],
+      [3, 7, 3, 0, 2, 8, 1, 0, 0],
+   ],
+   randomRemoveList = [0, 10, 20, 35, 50, 55],
    lineGridInput = false,
    algorithmNum = 0,
-   btnSolveActive = true
-
-////////////////
-
-//////////
-
-// Fetch a new Sudoku puzzle
-let speedValue = 0
-
-var copySudoku = [
-   [0, 0, 0, 0, 0, 0, 0, 0, 0],
-   [2, 0, 0, 0, 4, 0, 0, 8, 0],
-   [0, 3, 9, 7, 0, 0, 0, 2, 0],
-   [1, 0, 8, 0, 9, 0, 0, 0, 0],
-   [0, 2, 0, 0, 0, 0, 0, 4, 0],
-   [0, 0, 6, 0, 7, 0, 2, 0, 1],
-   [0, 0, 0, 0, 0, 0, 7, 6, 0],
-   [0, 6, 0, 9, 3, 0, 0, 1, 0],
-   [3, 7, 3, 0, 2, 8, 1, 0, 0],
-]
-
-let difficulty = 0
-const difficultyTexts = ["Simple", "Easy", "Moderate", "Intermediate", "Expert"]
-let randomRemoveList = [0, 10, 20, 35, 50, 55]
-////////////////
+   btnSolveActive = true,
+   difficulty = 0,
+   difficultyTexts = ["Simple", "Easy", "Moderate", "Intermediate", "Expert"]
 
 const applyResponse = function () {
    const sudokuArray = sudokuCellsValue.flat()
@@ -124,19 +112,7 @@ difficultyForm.addEventListener("click", function (e) {
 
          inputLineGridInput.value = ""
       } else {
-         console.log(difficulty)
-         const randomNum = randomRemoveNumber(difficulty)
-         // let sudokuApiUrl = `https://ali36saadat-sudoku.liara.run/api/?delete=${randomNum}`
-         // fetch(sudokuApiUrl)
-         //    .then((response) => response.text())
-         //    .then((data) => {
-         //       sudokuCellsValue = JSON.parse(data)
-         //       copyFunc(sudokuCellsValue)
-         //       applyResponse()
-         //    })
-         //    .catch((error) => {
-         //       console.error("Error:", error)
-         //    })
+         sudokuTableMaker(difficulty)
          return
       }
 
@@ -146,8 +122,6 @@ difficultyForm.addEventListener("click", function (e) {
 
 algorithmForm.addEventListener("click", function (e) {
    const btnClick = e.target.closest(".algorithm__form__button")
-   const btnSpeed = e.target.closest(".speed__button")
-
    if (!btnClick) return
 
    if (btnSolve == btnClick) {
@@ -156,32 +130,7 @@ algorithmForm.addEventListener("click", function (e) {
       algorithmSolver()
       return
    }
-   // else if (btnSpeed == btnIncreaseSpeed) {
-   //    if (speedValue < 2) {
-   //       btnDecreaseSpeed.disabled = false
-   //       speedValue++
-   //       inputSpeedCounter.value = speedValue
-   //    } else if (speedValue == 2) {
-   //       btnIncreaseSpeed.disabled = true
-   //       speedValue++
-   //       inputSpeedCounter.value = speedValue
-   //    }
-   //    return
-   // } else if (btnSpeed == btnDecreaseSpeed) {
-   //    if (speedValue > 1) {
-   //       btnIncreaseSpeed.disabled = false
-   //       speedValue--
-   //       inputSpeedCounter.value = speedValue
-   //    } else if (speedValue == 1) {
-   //       btnDecreaseSpeed.disabled = true
-   //       speedValue--
-   //       inputSpeedCounter.value = speedValue
-   //    }
-
-   //    return
-   // }
-
-   if (btnClick == trashBtn) {
+      if (btnClick == trashBtn) {
       errorInfo.classList.add("hidden")
       if (algorithmNum == 1) {
          iterationsInfo.classList.remove("hidden")
@@ -198,7 +147,6 @@ algorithmForm.addEventListener("click", function (e) {
       return
    }
 
-   // console.log(algorithmButtons)
    for (const t of algorithmButtons) {
       if (t == btnClick) {
          t.classList.add("algorithm__button--active")
@@ -207,16 +155,9 @@ algorithmForm.addEventListener("click", function (e) {
          t.classList.remove("algorithm__button--active")
       }
    }
-   // algorithmButtons.forEach((t) =>
-   //    t == btnClick
-   //       ? t.classList.add("algorithm__button--active")
-   //       : t.classList.remove("algorithm__button--active")
-   // )
 })
 
-applyResponse(sudokuCellsValue.flat())
 
-//////////////////////////
 
 const lineToGrid = function (line) {
    const gridArray = []
@@ -240,18 +181,12 @@ const lineToGrid = function (line) {
    }
 }
 
-// generateSudokuGrid(9, 30)
-
 const randomRemoveNumber = function (num) {
    return Math.floor(
       Math.random() * (randomRemoveList[num + 1] - randomRemoveList[num]) +
          randomRemoveList[num] +
          1
    )
-}
-
-const copyFunc = function (array) {
-   copySudoku = JSON.parse(JSON.stringify(array))
 }
 
 const TimeSpend = function (time) {
@@ -376,11 +311,6 @@ const algorithmSolver = function () {
       let tekrar = 0
       const startTime = performance.now()
       const completeSudoku = setSudokuGrid2(sudokuCellsValue)
-      // let completeSudoku = {}
-      // do {
-      //    tekrar++
-      //    completeSudoku = setSudokuGrid2(sudokuCellsValue)
-      // } while (tekrar == 10 || setSudokuGrid2(sudokuCellsValue[1]))
       const endTime = performance.now()
       TimeSpend(endTime - startTime)
       if (completeSudoku[1]) {
@@ -408,43 +338,11 @@ const algorithmSolver = function () {
    }
 }
 
-const invalidSearch = function (n) {
-   const col = Math.floor(n / 9)
-   const row = n % 9
-   const num = sudokuCellsValue[col][row]
-
-   for (let i = 0; i <= 8; i++) {
-      if (i != row) {
-         if (sudokuCellsValue[col][i] == num) {
-            return true
-         }
-      }
-
-      if (i != col) {
-         if (sudokuCellsValue[i][row] == num) {
-            return true
-         }
-      }
-   }
-
-   let subgridRow = row % 3,
-      subgridCol = col % 3,
-      startRow = row - subgridRow,
-      startCol = col - subgridCol
-
-   for (let i = 0; i < 3; i++) {
-      for (let j = 0; j < 3; j++) {
-         if (i != subgridCol && j != subgridRow) {
-            if (sudokuCellsValue[i + startCol][j + startRow] == num) {
-               return true
-            }
-         }
-      }
-   }
-
-   return false
+const sudokuTableMaker = function(difficulty){
+   const randomNum = randomRemoveNumber(difficulty)
+   sudokuCellsValue = sudokuSingleLineFunc(randomNum)
+   copySudoku=JSON.parse(JSON.stringify(sudokuCellsValue))
+   applyResponse()
 }
 
-
-
- 
+sudokuTableMaker(3)

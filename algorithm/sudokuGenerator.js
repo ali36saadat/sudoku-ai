@@ -1,4 +1,4 @@
-const generateSudokuLine=  function (visibleCount = 3) {
+const generateSudokuLine=  function (visibleCount) {
     const shuffle = arr => { 
       for (let i = arr.length - 1; i > 0; i--) { 
         const j = Math.floor(Math.random() * (i + 1)); 
@@ -37,20 +37,26 @@ const generateSudokuLine=  function (visibleCount = 3) {
     };
   
     const flatGrid = createGrid().flat();
-    visibleCount = Math.min(Math.max(visibleCount, 0), 81); // محدودیت ۰-۸۱
+    visibleCount = Math.min(Math.max(visibleCount, 0), 81);
     const indices = new Set();
     
     while (indices.size < visibleCount) {
       indices.add(Math.floor(Math.random() * 81));
     }
   
-    return flatGrid.map((num, index) => indices.has(index) ? num : '.').join('');
+    return flatGrid.map((num, index) => indices.has(index) ? num : 0).join('');
+}
+
+const ClassificationSudokuLine= function(line){
+  const chunkedArrays = [];
+  for (let i = 0; i < line.length; i += 9) {
+     chunkedArrays.push(line.slice(i, i + 9).split('').map(Number));
   }
+  
+  return chunkedArrays
+}
 
-  export default generateSudokuLine
-
-export const sudokuSingleLineFunc = function (type) {
-
-   sudokuGrid._setSudoku(grid)
-   return sudokuGrid._solve()
+export const sudokuSingleLineFunc = function (num) {
+  const sudokuLine = generateSudokuLine(81-num)
+  return ClassificationSudokuLine(sudokuLine)
 }
