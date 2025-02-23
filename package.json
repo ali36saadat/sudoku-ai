@@ -1,0 +1,21 @@
+{
+   "name": "sudoku-ai",
+   "version": "1.0.0",
+   "main": "main.js",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "npx live-server",
+      "start:cors": "npx live-server --cors --host=127.0.0.1 --port=8181 --wait=1000 --entry-file=index.html",
+      "sass": "sass ./index.scss ./index.css"
+   },
+   "author": "Ali36Saadat",
+   "license": "ISC",
+   "description": "",
+   "dependencies": {
+      "live-server": "^1.2.2",
+      "sass": "^1.85.0"
+   },
+   "devDependencies": {
+      "tailwindcss": "^3.4.17"
+   }
+}
