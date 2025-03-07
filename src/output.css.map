@@ -1,0 +1,10 @@
+{
+   "version": 3,
+   "sourceRoot": "",
+   "sources": [
+      "input.scss"
+   ],
+   "names": [],
+   "mappings": "AAEA;EACI",
+   "file": "output.css"
+}

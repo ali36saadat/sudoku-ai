@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
+   parser: "postcss-scss",
    content: ["*.{html,js}"],
    theme: {
       extend: {},

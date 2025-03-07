@@ -1,3 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "./a.scss";
+
+body {
+   background-color: #fff;
+}
