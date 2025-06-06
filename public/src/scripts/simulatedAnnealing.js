@@ -11,14 +11,7 @@ class SimulatedAnnealingSudokuSolver {
     }
 
     //UPDATE THE GRID AND PARAMETERS
-    _setSudoku(
-        grid,
-        coolingRate = 0.99,
-        initialTemperature = null,
-        maxIteration = 45000000,
-        reheatNumber = 50000,
-        reheatPercent = 0.9
-    ) {
+    _setSudoku(grid, coolingRate = 0.99, initialTemperature = null, maxIteration = 45000000, reheatNumber = 50000, reheatPercent = 0.9) {
         this.maxIteration = maxIteration;
         this.coolingRate = coolingRate;
         this.reheatNumber = reheatNumber;
@@ -126,9 +119,7 @@ class SimulatedAnnealingSudokuSolver {
             cost_differences.push(delta_cost);
         }
 
-        const avg_delta_cost =
-            cost_differences.reduce((a, b) => a + b, 0) /
-            cost_differences.length;
+        const avg_delta_cost = cost_differences.reduce((a, b) => a + b, 0) / cost_differences.length;
         return avg_delta_cost;
     }
 
@@ -139,12 +130,7 @@ class SimulatedAnnealingSudokuSolver {
         while (true) {
             cell1 = this._sample(this.emptyCells);
             cell2 = this._sample(this.emptyCells);
-            if (
-                cell1 &&
-                cell2 &&
-                (cell1[0] !== cell2[0] || cell1[1] !== cell2[1])
-            )
-                break;
+            if (cell1 && cell2 && (cell1[0] !== cell2[0] || cell1[1] !== cell2[1])) break;
         }
         if (cell1 && cell2) {
             const temp = newGrid[cell1[0]][cell1[1]];
@@ -178,17 +164,13 @@ class SimulatedAnnealingSudokuSolver {
                 //The cost is zero, so the grid has been resolved
                 return [current_state, true, iteration];
             }
-            if (iteration % this.reheatNumber === 0)
-                current_temperature = this.reheatTemperature;
+            if (iteration % this.reheatNumber === 0) current_temperature = this.reheatTemperature;
 
             const new_state = this._generateNeighbor(current_state);
             const new_cost = this._getSudokuCost(new_state);
             const delta_cost = new_cost - current_cost;
 
-            if (
-                delta_cost < 0 ||
-                Math.random() < Math.exp(-delta_cost / current_temperature)
-            ) {
+            if (delta_cost < 0 || Math.random() < Math.exp(-delta_cost / current_temperature)) {
                 current_state = new_state.map((row) => [...row]);
                 current_cost = new_cost;
             }
@@ -205,11 +187,7 @@ class SimulatedAnnealingSudokuSolver {
 
 const sudokuGrid = new SimulatedAnnealingSudokuSolver();
 
-export const simulatedAnnealing = function (
-    grid,
-    coolingRate,
-    initialTemperature
-) {
+export const simulatedAnnealingAlgorithm = function (grid, coolingRate, initialTemperature) {
     sudokuGrid._setSudoku(grid, initialTemperature, coolingRate);
     return sudokuGrid._solve();
 };

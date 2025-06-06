@@ -1,800 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Sudoku AI</title>
-        <link href="/public/style/tailwind.css" rel="stylesheet" />
-        <link href="/public/style/style.css" rel="stylesheet" />
-    </head>
-    <body>
-        <div class="app-container">
-            <!--  START LEFT SIDE  -->
-            <div
-                class="side side-left col-span-2 h-screen w-full left__side relative"
-            >
-                <!--  GENERATE SECTION  -->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sudoku AI</title>
+    <link href="/public/style/tailwind.css" rel="stylesheet" />
+    <link href="/public/style/style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="app-container">
+        <!--  START LEFT SIDE  -->
+        <div class="side side-left col-span-2 h-screen w-full left__side relative">
+            <!--  GENERATE SECTION  -->
+            <div class="flex flex-col items-center pt-2 text-white">
+                <h3 class="text-4xl text-stroke-3 pb-3">Generator</h3>
+                <div class="grid grid-cols-3 w-full justify-items-center items-center difficulty__buttons">
+                    <div class="col-span-3 flex items-center bg-white difficulty__setter mt-3 mb-1">
+                        <button class="">
+                            <img class="w-4 h mr-2 difficulty__set__pre difficulty__form__button"
+                                src="/public/src/images/PreIcon.png" alt="next" />
+                        </button>
+                        <div class="w-48 h-8 text-center pt-1 difficulty__set">
+                            simple
+                        </div>
+                        <button>
+                            <img class="w-4 h ml-2 difficulty__set__next difficulty__form__button"
+                                src="/public/src/images/NextIcon.png" alt="pre" />
+                        </button>
+                    </div>
+                    <div class="col-span-5 grid grid-cols-6 w-72 h-6 my-3 justify-items-center line__input hidden">
+                        <span class="col-span-2 text-md">Input</span>
+                        <input class="col-span-4 w-full text-black line__grid__input" type="text" name="gridInput"
+                            id="gridInput" title="gridInput" placeholder="Paste" />
+                    </div>
+                    <button
+                        class="col-span-3 text-2xl w-64 h-12 content-center items-center mt-9 shadow-submit submit__button difficulty__form__button relative"
+                        title="Submit Difficulty">
+                        Generate
+                    </button>
+                    <div
+                        class="bg-white shadow__switch col-span-3 mt-5 grid grid-cols-5 text-black h-6 items-center content-center justify-items-center grid__form__input">
+                        <span class="col-span-2 text-sm">Input</span>
+                        <div class="switch__button difficulty__form__button">
+                            <label class="switch col-span-1">
+                                <input type="checkbox" checked />
+                                <span class="slider switch__button"></span>
+                            </label>
+                        </div>
+                        <span class="col-span-2 text-sm">SCRIPT</span>
+                    </div>
+                </div>
+
+                <div class="w-96 h-1 bg-white mt-8 shadow-break"></div>
+            </div>
+
+            <!--  GENERATE SECTION  -->
+            <div class="flex flex-col items-center py-2 text-white">
+                <h3 class="text-4xl text-stroke-3 pt-2">Solver</h3>
+                <div class="grid grid-cols-2 grid-rows-2 justify-items-center items-center w-full algorithm__buttons">
+                    <button
+                        class="grid grid-cols-5 text-sm w-64 h-6 content-center items-center my-3 shadow__algorithm algorithm__button algorithm__form__button algorithm__button--active"
+                        title="backtracking">
+                        <img class="col-span-1 w-16" src="/public/src/images/Tick.png" alt="" />
+                        <span class="col-span-4 relative">Backtracking</span>
+                    </button>
+                    <button
+                        class="grid grid-cols-5 text-sm w-64 h-6 content-center items-center my-3 shadow__algorithm algorithm__button algorithm__form__button"
+                        title="simulatedAnnealing">
+                        <img class="col-span-1 w-16" src="/public/src/images/Tick.png" alt="" />
+                        <span class="col-span-4 relative text-xs">
+                            Simulated Annealing
+                        </span>
+                    </button>
+                    <button
+                        class="col-span-2 bg-sky-400 text-2xl w-64 h-12 content-center items-center mt-6 ml-2 shadow-submit solve__button algorithm__form__button"
+                        title="Submit Difficulty">
+                        Solve
+                    </button>
+                    <button
+                        class="col-span-2 bg-white text-2xl w-10 h-12 content-center -mt-12 ml-80 algorithm__form__button trash__button">
+                        <img class="w-8 mx-auto" src="public/src/images/trashIcon.png" alt="trash" />
+                    </button>
+                </div>
+                <div class="w-96 h-1 bg-white mt-12 shadow-break"></div>
+            </div>
+
+            <div class="setting__buttons hidden">
                 <div class="flex flex-col items-center pt-2 text-white">
-                    <h3 class="text-4xl text-stroke-3 pb-3">Generator</h3>
-                    <div
-                        class="grid grid-cols-3 w-full justify-items-center items-center difficulty__buttons"
-                    >
-                        <div
-                            class="col-span-3 flex items-center bg-white difficulty__setter mt-3 mb-1"
-                        >
-                            <button class="">
-                                <img
-                                    class="w-4 h mr-2 difficulty__set__pre difficulty__form__button"
-                                    src="/public/src/images/PreIcon.png"
-                                    alt="next"
-                                />
-                            </button>
-                            <div
-                                class="w-48 h-8 text-center pt-1 difficulty__set"
-                            >
-                                simple
-                            </div>
-                            <button>
-                                <img
-                                    class="w-4 h ml-2 difficulty__set__next difficulty__form__button"
-                                    src="/public/src/images/NextIcon.png"
-                                    alt="pre"
-                                />
-                            </button>
-                        </div>
-                        <div
-                            class="col-span-5 grid grid-cols-6 w-72 h-6 my-3 justify-items-center line__input hidden"
-                        >
-                            <span class="col-span-2 text-md">Input</span>
-                            <input
-                                class="col-span-4 w-full text-black line__grid__input"
-                                type="text"
-                                name="gridInput"
-                                id="gridInput"
-                                title="gridInput"
-                                placeholder="Paste"
-                            />
-                        </div>
-                        <button
-                            class="col-span-3 text-2xl w-64 h-12 content-center items-center mt-9 shadow-submit submit__button difficulty__form__button relative"
-                            title="Submit Difficulty"
-                        >
-                            Generate
-                        </button>
-                        <div
-                            class="bg-white shadow__switch col-span-3 mt-5 grid grid-cols-5 text-black h-6 items-center content-center justify-items-center grid__form__input"
-                        >
-                            <span class="col-span-2 text-sm">Input</span>
-                            <div
-                                class="switch__button difficulty__form__button"
-                            >
-                                <label class="switch col-span-1">
-                                    <input type="checkbox" checked />
-                                    <span class="slider switch__button"></span>
-                                </label>
-                            </div>
-                            <span class="col-span-2 text-sm">SCRIPT</span>
-                        </div>
-                    </div>
-
-                    <div class="w-96 h-1 bg-white mt-8 shadow-break"></div>
-                </div>
-
-                <!--  GENERATE SECTION  -->
-                <div class="flex flex-col items-center py-2 text-white">
-                    <h3 class="text-4xl text-stroke-3 pt-2">Solver</h3>
-                    <div
-                        class="grid grid-cols-2 grid-rows-2 justify-items-center items-center w-full algorithm__buttons"
-                    >
-                        <button
-                            class="grid grid-cols-5 text-sm w-64 h-6 content-center items-center my-3 shadow__algorithm algorithm__button algorithm__form__button algorithm__button--active"
-                            title="backtracking"
-                        >
-                            <img
-                                class="col-span-1 w-16"
-                                src="/public/src/images/Tick.png"
-                                alt=""
-                            />
-                            <span class="col-span-4 relative"
-                                >Backtracking</span
-                            >
-                        </button>
-                        <button
-                            class="grid grid-cols-5 text-sm w-64 h-6 content-center items-center my-3 shadow__algorithm algorithm__button algorithm__form__button"
-                            title="simulatedAnnealing"
-                        >
-                            <img
-                                class="col-span-1 w-16"
-                                src="/public/src/images/Tick.png"
-                                alt=""
-                            />
-                            <span class="col-span-4 relative text-xs">
-                                Simulated Annealing
-                            </span>
-                        </button>
-                        <button
-                            class="col-span-2 bg-sky-400 text-2xl w-64 h-12 content-center items-center mt-6 ml-2 shadow-submit solve__button algorithm__form__button"
-                            title="Submit Difficulty"
-                        >
-                            Solve
-                        </button>
-                        <button
-                            class="col-span-2 bg-white text-2xl w-10 h-12 content-center -mt-12 ml-80 algorithm__form__button trash__button"
-                        >
-                            <img
-                                class="w-8 mx-auto"
-                                src="public/src/images/trashIcon.png"
-                                alt="trash"
-                            />
-                        </button>
-                    </div>
-                    <div class="w-96 h-1 bg-white mt-12 shadow-break"></div>
-                </div>
-
-                <div class="setting__buttons hidden">
-                    <div class="flex flex-col items-center pt-2 text-white">
-                        <h3 class="text-4xl text-stroke-3 pb-3">Setting</h3>
-                        <div
-                            class="grid grid-cols-8 w-full justify-items-center"
-                        >
-                            <div class="col-span-3 -mr-6">
-                                <div
-                                    class="initial__temperature setting__option w-fit flex flex-row h-12"
-                                >
-                                    <div class="flex flex-col mr-2">
-                                        <button
-                                            class="w-fit mb-1 mt-1 up__temp setting__form__button"
-                                        >
-                                            <img
-                                                class="w-4"
-                                                src="/public/src/images/UpIcon.png"
-                                                alt="upIcon"
-                                            />
-                                        </button>
-                                        <button
-                                            class="w-4 mt-1 down__temp setting__form__button"
-                                        >
-                                            <img
-                                                class="w-4"
-                                                src="/public/src/images/DownIcon.png"
-                                                alt="downIcon"
-                                            />
-                                        </button>
-                                    </div>
-                                    <input
-                                        type="number"
-                                        class="w-36 h-10 my-auto bg-white text-black text-2xl input__temp"
-                                        value="2"
-                                    />
+                    <h3 class="text-4xl text-stroke-3 pb-3">Setting</h3>
+                    <div class="grid grid-cols-8 w-full justify-items-center">
+                        <div class="col-span-3 -mr-6">
+                            <div class="initial__temperature setting__option w-fit flex flex-row h-12">
+                                <div class="flex flex-col mr-2">
+                                    <button class="w-fit mb-1 mt-1 up__temp setting__form__button">
+                                        <img class="w-4" src="/public/src/images/UpIcon.png" alt="upIcon" />
+                                    </button>
+                                    <button class="w-4 mt-1 down__temp setting__form__button">
+                                        <img class="w-4" src="/public/src/images/DownIcon.png" alt="downIcon" />
+                                    </button>
                                 </div>
-                                <div
-                                    class="text-sm w-40 text-center mx-auto mt-2 text__temperature"
-                                >
-                                    temperature
-                                </div>
+                                <input type="number" class="w-36 h-10 my-auto bg-white text-black text-2xl input__temp"
+                                    value="2" />
                             </div>
-                            <div class="col-span-3 -ml-6">
-                                <div
-                                    class="cooling__rate setting__option w-fit flex flex-row h-12"
-                                >
-                                    <div class="flex flex-col mr-2">
-                                        <button
-                                            class="w-fit mb-1 mt-1 up__rate setting__form__button"
-                                        >
-                                            <img
-                                                class="w-4"
-                                                src="/public/src/images/UpIcon.png"
-                                                alt="upIcon"
-                                            />
-                                        </button>
-                                        <button
-                                            class="w-4 mt-1 down__rate setting__form__button"
-                                        >
-                                            <img
-                                                class="w-4"
-                                                src="/public/src/images/DownIcon.png"
-                                                alt="downIcon"
-                                            />
-                                        </button>
-                                    </div>
-                                    <input
-                                        type="number"
-                                        class="w-36 h-10 my-auto bg-white text-black text-2xl input__rate"
-                                        value="0.990"
-                                    />
-                                </div>
-                                <div
-                                    class="text-sm w-40 text-center mx-auto mt-2 text__temperature"
-                                >
-                                    cooling rate
-                                </div>
+                            <div class="text-sm w-40 text-center mx-auto mt-2 text__temperature">
+                                temperature
                             </div>
-                            <button
-                                class="col-span-2 mt-2 mr-6 h-8 reset__button text-center setting__form__button w-28"
-                            >
-                                reset
-                            </button>
                         </div>
+                        <div class="col-span-3 -ml-6">
+                            <div class="cooling__rate setting__option w-fit flex flex-row h-12">
+                                <div class="flex flex-col mr-2">
+                                    <button class="w-fit mb-1 mt-1 up__rate setting__form__button">
+                                        <img class="w-4" src="/public/src/images/UpIcon.png" alt="upIcon" />
+                                    </button>
+                                    <button class="w-4 mt-1 down__rate setting__form__button">
+                                        <img class="w-4" src="/public/src/images/DownIcon.png" alt="downIcon" />
+                                    </button>
+                                </div>
+                                <input type="number" class="w-36 h-10 my-auto bg-white text-black text-2xl input__rate"
+                                    value="0.990" />
+                            </div>
+                            <div class="text-sm w-40 text-center mx-auto mt-2 text__temperature">
+                                cooling rate
+                            </div>
+                        </div>
+                        <button class="col-span-2 mt-2 mr-6 h-8 reset__button text-center setting__form__button w-28">
+                            reset
+                        </button>
                     </div>
                 </div>
             </div>
-            <!--  END LEFT SIDE  -->
+        </div>
+        <!--  END LEFT SIDE  -->
 
-            <!--  START RIGHT SIDE  -->
-            <div
-                class="side side-right col-span-3 h-screen w-full right__side game__section"
-            >
-                <img
-                    src="/public/src/images/Soduko AI Logo.png"
-                    class="w-36 absolute"
-                    alt=""
-                />
-                <div
-                    class="grid grid-cols-9 grid-rows-9 w-fit gap-x-4 gap-y-6 justify-items-center sudoku__table mx-auto"
-                >
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-1 row-1"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-1 row-2"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-1 row-3"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-1 row-4"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-1 row-5"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-1 row-6"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-1 row-7"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-1 row-8"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-1 row-9"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-2 row-1"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-2 row-2"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-2 row-3"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-2 row-4"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-2 row-5"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-2 row-6"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-2 row-7"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-2 row-8"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-2 row-9"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-3 row-1"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-3 row-2"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-3 row-3"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-3 row-4"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-3 row-5"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-3 row-6"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-3 row-7"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-3 row-8"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-3 row-9"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-4 row-1"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-4 row-2"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-4 row-3"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-4 row-4"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-4 row-5"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-4 row-6"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-4 row-7"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-4 row-8"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-4 row-9"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-5 row-1"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-5 row-2"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-5 row-3"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-5 row-4"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-5 row-5"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-5 row-6"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-5 row-7"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-5 row-8"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-5 row-9"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-6 row-1"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-6 row-2"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-6 row-3"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-6 row-4"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-6 row-5"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-6 row-6"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-6 row-7"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-6 row-8"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-6 row-9"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-7 row-1"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-7 row-2"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-7 row-3"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-7 row-4"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-7 row-5"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-7 row-6"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-7 row-7"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-7 row-8"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-7 row-9"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-8 row-1"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-8 row-2"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-8 row-3"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-8 row-4"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-8 row-5"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-8 row-6"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-8 row-7"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-8 row-8"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-8 row-9"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-9 row-1"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-9 row-2"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-9 row-3"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-9 row-4"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-9 row-5"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-9 row-6"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-9 row-7"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-9 row-8"
-                        disabled
-                    />
-                    <input
-                        class="sudoku__cell"
-                        type="text"
-                        title="col-9 row-9"
-                        disabled
-                    />
+        <!--  START RIGHT SIDE  -->
+        <div class="side side-right col-span-3 h-screen w-full right__side game__section">
+            <img src="/public/src/images/Soduko AI Logo.png" class="w-36 absolute" alt="" />
+            <div class="grid grid-cols-9 grid-rows-9 w-fit gap-x-4 gap-y-6 justify-items-center sudoku__table mx-auto">
+                <input class="sudoku__cell" type="text" title="col-1 row-1" disabled />
+                <input class="sudoku__cell" type="text" title="col-1 row-2" disabled />
+                <input class="sudoku__cell" type="text" title="col-1 row-3" disabled />
+                <input class="sudoku__cell" type="text" title="col-1 row-4" disabled />
+                <input class="sudoku__cell" type="text" title="col-1 row-5" disabled />
+                <input class="sudoku__cell" type="text" title="col-1 row-6" disabled />
+                <input class="sudoku__cell" type="text" title="col-1 row-7" disabled />
+                <input class="sudoku__cell" type="text" title="col-1 row-8" disabled />
+                <input class="sudoku__cell" type="text" title="col-1 row-9" disabled />
+                <input class="sudoku__cell" type="text" title="col-2 row-1" disabled />
+                <input class="sudoku__cell" type="text" title="col-2 row-2" disabled />
+                <input class="sudoku__cell" type="text" title="col-2 row-3" disabled />
+                <input class="sudoku__cell" type="text" title="col-2 row-4" disabled />
+                <input class="sudoku__cell" type="text" title="col-2 row-5" disabled />
+                <input class="sudoku__cell" type="text" title="col-2 row-6" disabled />
+                <input class="sudoku__cell" type="text" title="col-2 row-7" disabled />
+                <input class="sudoku__cell" type="text" title="col-2 row-8" disabled />
+                <input class="sudoku__cell" type="text" title="col-2 row-9" disabled />
+                <input class="sudoku__cell" type="text" title="col-3 row-1" disabled />
+                <input class="sudoku__cell" type="text" title="col-3 row-2" disabled />
+                <input class="sudoku__cell" type="text" title="col-3 row-3" disabled />
+                <input class="sudoku__cell" type="text" title="col-3 row-4" disabled />
+                <input class="sudoku__cell" type="text" title="col-3 row-5" disabled />
+                <input class="sudoku__cell" type="text" title="col-3 row-6" disabled />
+                <input class="sudoku__cell" type="text" title="col-3 row-7" disabled />
+                <input class="sudoku__cell" type="text" title="col-3 row-8" disabled />
+                <input class="sudoku__cell" type="text" title="col-3 row-9" disabled />
+                <input class="sudoku__cell" type="text" title="col-4 row-1" disabled />
+                <input class="sudoku__cell" type="text" title="col-4 row-2" disabled />
+                <input class="sudoku__cell" type="text" title="col-4 row-3" disabled />
+                <input class="sudoku__cell" type="text" title="col-4 row-4" disabled />
+                <input class="sudoku__cell" type="text" title="col-4 row-5" disabled />
+                <input class="sudoku__cell" type="text" title="col-4 row-6" disabled />
+                <input class="sudoku__cell" type="text" title="col-4 row-7" disabled />
+                <input class="sudoku__cell" type="text" title="col-4 row-8" disabled />
+                <input class="sudoku__cell" type="text" title="col-4 row-9" disabled />
+                <input class="sudoku__cell" type="text" title="col-5 row-1" disabled />
+                <input class="sudoku__cell" type="text" title="col-5 row-2" disabled />
+                <input class="sudoku__cell" type="text" title="col-5 row-3" disabled />
+                <input class="sudoku__cell" type="text" title="col-5 row-4" disabled />
+                <input class="sudoku__cell" type="text" title="col-5 row-5" disabled />
+                <input class="sudoku__cell" type="text" title="col-5 row-6" disabled />
+                <input class="sudoku__cell" type="text" title="col-5 row-7" disabled />
+                <input class="sudoku__cell" type="text" title="col-5 row-8" disabled />
+                <input class="sudoku__cell" type="text" title="col-5 row-9" disabled />
+                <input class="sudoku__cell" type="text" title="col-6 row-1" disabled />
+                <input class="sudoku__cell" type="text" title="col-6 row-2" disabled />
+                <input class="sudoku__cell" type="text" title="col-6 row-3" disabled />
+                <input class="sudoku__cell" type="text" title="col-6 row-4" disabled />
+                <input class="sudoku__cell" type="text" title="col-6 row-5" disabled />
+                <input class="sudoku__cell" type="text" title="col-6 row-6" disabled />
+                <input class="sudoku__cell" type="text" title="col-6 row-7" disabled />
+                <input class="sudoku__cell" type="text" title="col-6 row-8" disabled />
+                <input class="sudoku__cell" type="text" title="col-6 row-9" disabled />
+                <input class="sudoku__cell" type="text" title="col-7 row-1" disabled />
+                <input class="sudoku__cell" type="text" title="col-7 row-2" disabled />
+                <input class="sudoku__cell" type="text" title="col-7 row-3" disabled />
+                <input class="sudoku__cell" type="text" title="col-7 row-4" disabled />
+                <input class="sudoku__cell" type="text" title="col-7 row-5" disabled />
+                <input class="sudoku__cell" type="text" title="col-7 row-6" disabled />
+                <input class="sudoku__cell" type="text" title="col-7 row-7" disabled />
+                <input class="sudoku__cell" type="text" title="col-7 row-8" disabled />
+                <input class="sudoku__cell" type="text" title="col-7 row-9" disabled />
+                <input class="sudoku__cell" type="text" title="col-8 row-1" disabled />
+                <input class="sudoku__cell" type="text" title="col-8 row-2" disabled />
+                <input class="sudoku__cell" type="text" title="col-8 row-3" disabled />
+                <input class="sudoku__cell" type="text" title="col-8 row-4" disabled />
+                <input class="sudoku__cell" type="text" title="col-8 row-5" disabled />
+                <input class="sudoku__cell" type="text" title="col-8 row-6" disabled />
+                <input class="sudoku__cell" type="text" title="col-8 row-7" disabled />
+                <input class="sudoku__cell" type="text" title="col-8 row-8" disabled />
+                <input class="sudoku__cell" type="text" title="col-8 row-9" disabled />
+                <input class="sudoku__cell" type="text" title="col-9 row-1" disabled />
+                <input class="sudoku__cell" type="text" title="col-9 row-2" disabled />
+                <input class="sudoku__cell" type="text" title="col-9 row-3" disabled />
+                <input class="sudoku__cell" type="text" title="col-9 row-4" disabled />
+                <input class="sudoku__cell" type="text" title="col-9 row-5" disabled />
+                <input class="sudoku__cell" type="text" title="col-9 row-6" disabled />
+                <input class="sudoku__cell" type="text" title="col-9 row-7" disabled />
+                <input class="sudoku__cell" type="text" title="col-9 row-8" disabled />
+                <input class="sudoku__cell" type="text" title="col-9 row-9" disabled />
+            </div>
+            <div class="info__section flex flex-row w-fit mx-auto">
+                <div class="mx-auto w-fit mt-10 time__info">
+                    <div class="time__spend__text mb-3 mx-auto w-28 bg-white text-center">
+                        Time
+                    </div>
+                    <div class="time__spend__container w-32 h-8 text-center text-white">
+                        <span class="time__spend"></span>
+                        <span class="text-xs">ms</span>
+                    </div>
                 </div>
-                <div class="info__section flex flex-row w-fit mx-auto">
-                    <div class="mx-auto w-fit mt-10 time__info">
-                        <div
-                            class="time__spend__text mb-3 mx-auto w-28 bg-white text-center"
-                        >
-                            Time
-                        </div>
-                        <div
-                            class="time__spend__container w-32 h-8 text-center text-white"
-                        >
-                            <span class="time__spend"></span>
-                            <span class="text-xs">ms</span>
-                        </div>
+                <div class="mx-auto w-fit mt-10 ml-24 iterations__info hidden">
+                    <div class="iterations__text mb-3 mx-auto w-40 bg-white text-center">
+                        Iterations
                     </div>
-                    <div
-                        class="mx-auto w-fit mt-10 ml-24 iterations__info hidden"
-                    >
-                        <div
-                            class="iterations__text mb-3 mx-auto w-40 bg-white text-center"
-                        >
-                            Iterations
-                        </div>
-                        <div
-                            class="iterations__container w-44 h-8 text-center text-white"
-                        ></div>
-                    </div>
-                    <div
-                        class="w-96 h-16 mx-auto mt-10 error__info grid grid-cols-5 bg-red-600 items-center px-3 hidden"
-                    >
-                        <img
-                            class="w-12 h-fit my-auto"
-                            src="/public/src/images/DangerIcon.png"
-                            alt="DangerIcon"
-                        />
+                    <div class="iterations__container w-44 h-8 text-center text-white"></div>
+                </div>
+                <div class="w-96 h-16 mx-auto mt-10 error__info grid grid-cols-5 bg-red-600 items-center px-3 hidden">
+                    <img class="w-12 h-fit my-auto" src="/public/src/images/DangerIcon.png" alt="DangerIcon" />
 
-                        <div
-                            class="error__text h-fit mx-auto text-center col-span-4 text-xs text-red-200"
-                        ></div>
-                    </div>
+                    <div class="error__text h-fit mx-auto text-center col-span-4 text-xs text-red-200"></div>
                 </div>
             </div>
-            <!--  END RIGHT SIDE  -->
         </div>
+        <!--  END RIGHT SIDE  -->
+    </div>
 
-        <!--  SOCIAL MEDIA  -->
-        <div
-            class="flex flex-row items-center justify-center py-4 text-white bottom-0 absolute w-full"
-        >
-            <a
-                href="https://github.com/ali36saadat"
-                target="_blank"
-                class="col-span-3 text-2xl w-10 h-8 mx-3 content-center items-center shadow__github"
-                title="Github"
-            >
-                <img
-                    src="/public/src/images/githubIcon.png"
-                    class="w-9 h-9 mx-auto"
-                    alt="github icon"
-                />
-            </a>
+    <!--  SOCIAL MEDIA  -->
+    <div class="flex flex-row items-center justify-center py-4 text-white bottom-0 absolute w-full">
+        <a href="https://github.com/ali36saadat" target="_blank"
+            class="col-span-3 text-2xl w-10 h-8 mx-3 content-center items-center shadow__github" title="Github">
+            <img src="/public/src/images/githubIcon.png" class="w-9 h-9 mx-auto" alt="github icon" />
+        </a>
 
-            <a
-                href="https://x.com/Ali36Saadat"
-                target="_blank"
-                class="col-span-3 text-2xl w-10 h-8 mx-3 content-center items-center shadow__x"
-                title="X"
-            >
-                <img
-                    src="/public/src/images/xIcon.png"
-                    class="w-9 h-9 mx-auto"
-                    alt="x icon"
-                />
-            </a>
-        </div>
+        <a href="https://x.com/Ali36Saadat" target="_blank"
+            class="col-span-3 text-2xl w-10 h-8 mx-3 content-center items-center shadow__x" title="X">
+            <img src="/public/src/images/xIcon.png" class="w-9 h-9 mx-auto" alt="x icon" />
+        </a>
+    </div>
 
-        <!--  SCRIPTS  -->
-        <script src="/public/script/main.js" type="module"></script>
-    </body>
+    <!--  SCRIPTS  -->
+    <script src="/public/script/main.js" type="module"></script>
+</body>
+
 </html>

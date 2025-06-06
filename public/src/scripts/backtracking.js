@@ -30,16 +30,13 @@ class BacktrackingSudokuSolver {
     //VALIDATE CELL
     _isValid(row, col, num) {
         for (let j = 0; j < 9; j++) {
-            if (this.grid[j][col] == num || this.grid[row][j] == num)
-                return false; // If the number already exists in the current row or column, return false
+            if (this.grid[j][col] == num || this.grid[row][j] == num) return false; // If the number already exists in the current row or column, return false
         }
 
         let startRow = row - (row % 3),
             startCol = col - (col % 3);
 
-        for (let i = 0; i < 3; i++)
-            for (let j = 0; j < 3; j++)
-                if (this.grid[i + startRow][j + startCol] == num) return false; // If the number already exists in the current subgrid, return false
+        for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) if (this.grid[i + startRow][j + startCol] == num) return false; // If the number already exists in the current subgrid, return false
 
         return true; // If the number doesn't exist in the current row, col and subgrid, return true
     }
@@ -66,7 +63,7 @@ class BacktrackingSudokuSolver {
 
 const sudokuGrid = new BacktrackingSudokuSolver();
 
-export const backtracking = function (grid) {
+export const backtrackingAlgorithm = function (grid) {
     sudokuGrid._setSudoku(grid);
     return sudokuGrid._solve(0, 0) ? [grid, true] : [grid, false];
 };

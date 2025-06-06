@@ -47,12 +47,12 @@
 /* FONTS */
 @font-face {
     font-family: "CrossyFont";
-    src: url("/public/src/fonts/8-BIT\ WONDER.TTF");
+    src: url("/public/src/fonts/8-BIT.TTF");
 }
 
 @font-face {
     font-family: "NumberFont";
-    src: url("./public/src/fonts/TimeburnerBold-peGR.ttf");
+    src: url("./public/src/fonts/TimeburnerBold.ttf");
 }
 
 * {
@@ -77,59 +77,38 @@ input {
 }
 
 .shadow-easy {
-    box-shadow: 0 4px var(--color-difficulty-easy),
-        4px 0px var(--color-difficulty-easy),
-        0px -4px var(--color-difficulty-easy),
+    box-shadow: 0 4px var(--color-difficulty-easy), 4px 0px var(--color-difficulty-easy), 0px -4px var(--color-difficulty-easy),
         -4px 0px var(--color-difficulty-easy);
 }
 
 .shadow-medium {
-    box-shadow: 0 4px var(--color-difficulty-medium),
-        4px 0px var(--color-difficulty-medium),
-        0px -4px var(--color-difficulty-medium),
+    box-shadow: 0 4px var(--color-difficulty-medium), 4px 0px var(--color-difficulty-medium), 0px -4px var(--color-difficulty-medium),
         -4px 0px var(--color-difficulty-medium);
 }
 
 .shadow-hard {
-    box-shadow: 0 4px var(--color-difficulty-hard),
-        4px 0px var(--color-difficulty-hard),
-        0px -4px var(--color-difficulty-hard),
+    box-shadow: 0 4px var(--color-difficulty-hard), 4px 0px var(--color-difficulty-hard), 0px -4px var(--color-difficulty-hard),
         -4px 0px var(--color-difficulty-hard);
 }
 
 .shadow-submit {
     background-color: var(--color-submit-2);
-    box-shadow: 0px 4px var(--color-submit-2), 4px 0px var(--color-submit-2),
-        -4px 0px var(--color-submit-2), 0px -4px var(--color-submit-2),
-        0px 8px var(--color-submit-3), 4px 4px var(--color-submit-3),
-        -4px 4px var(--color-submit-3), 0 12px var(--color-white),
-        4px 12px var(--color-white), -4px 4px var(--color-white),
-        -4px -4px var(--color-submit-2), 0px -8px var(--color-submit-2),
-        4px -4px var(--color-submit-2), -4px -8px var(--color-submit-1),
-        4px -8px var(--color-submit-1), 8px 4px var(--color-white),
-        8px 8px var(--color-white), -8px 8px var(--color-white),
-        -4px 12px var(--color-white), -8px 4px var(--color-white),
-        -8px 0px var(--color-white), -4px 8px var(--color-white),
-        8px -4px var(--color-white), -8px -4px var(--color-white),
-        8px 0px var(--color-white), 0px -12px var(--color-submit-1);
+    box-shadow: 0px 4px var(--color-submit-2), 4px 0px var(--color-submit-2), -4px 0px var(--color-submit-2), 0px -4px var(--color-submit-2),
+        0px 8px var(--color-submit-3), 4px 4px var(--color-submit-3), -4px 4px var(--color-submit-3), 0 12px var(--color-white), 4px 12px var(--color-white),
+        -4px 4px var(--color-white), -4px -4px var(--color-submit-2), 0px -8px var(--color-submit-2), 4px -4px var(--color-submit-2),
+        -4px -8px var(--color-submit-1), 4px -8px var(--color-submit-1), 8px 4px var(--color-white), 8px 8px var(--color-white), -8px 8px var(--color-white),
+        -4px 12px var(--color-white), -8px 4px var(--color-white), -8px 0px var(--color-white), -4px 8px var(--color-white), 8px -4px var(--color-white),
+        -8px -4px var(--color-white), 8px 0px var(--color-white), 0px -12px var(--color-submit-1);
 }
 
 .shadow-submit:active {
     background-color: var(--color-submit-3);
-    box-shadow: 4px 4px var(--color-submit-3), -4px 4px var(--color-submit-3),
-        0px 4px var(--color-submit-3), 4px 0px var(--color-submit-4),
-        -4px 0px var(--color-submit-4), 0px -4px var(--color-submit-4),
-        0px 8px var(--color-submit-3), 4px 4px var(--color-submit-4),
-        -4px 4px var(--color-submit-4), 0 12px var(--color-white),
-        4px 12px var(--color-white), -4px 4px var(--color-white),
-        -4px -4px var(--color-white), 0px -8px var(--color-white),
-        4px -4px var(--color-white), -4px -8px var(--color-white),
-        4px -8px var(--color-white), 8px 4px var(--color-white),
-        8px 8px var(--color-white), -8px 8px var(--color-white),
-        -4px 12px var(--color-white), -8px 4px var(--color-white),
-        -8px 0px var(--color-white), -4px 8px var(--color-white),
-        8px -4px var(--color-white), -8px -4px var(--color-white),
-        8px 0px var(--color-white);
+    box-shadow: 4px 4px var(--color-submit-3), -4px 4px var(--color-submit-3), 0px 4px var(--color-submit-3), 4px 0px var(--color-submit-4),
+        -4px 0px var(--color-submit-4), 0px -4px var(--color-submit-4), 0px 8px var(--color-submit-3), 4px 4px var(--color-submit-4),
+        -4px 4px var(--color-submit-4), 0 12px var(--color-white), 4px 12px var(--color-white), -4px 4px var(--color-white), -4px -4px var(--color-white),
+        0px -8px var(--color-white), 4px -4px var(--color-white), -4px -8px var(--color-white), 4px -8px var(--color-white), 8px 4px var(--color-white),
+        8px 8px var(--color-white), -8px 8px var(--color-white), -4px 12px var(--color-white), -8px 4px var(--color-white), -8px 0px var(--color-white),
+        -4px 8px var(--color-white), 8px -4px var(--color-white), -8px -4px var(--color-white), 8px 0px var(--color-white);
     padding-top: 4px;
 }
 
@@ -154,19 +133,12 @@ input {
     height: 36px;
     background-color: var(--color-submit-2);
     text-align: center;
-    box-shadow: 0px 4px var(--color-submit-2), 4px 0px var(--color-submit-2),
-        -4px 0px var(--color-submit-2), 0px -4px var(--color-submit-2),
-        0px 8px var(--color-submit-3), 4px 4px var(--color-submit-3),
-        -4px 4px var(--color-submit-3), 0 12px var(--color-white),
-        4px 12px var(--color-white), -4px 4px var(--color-white),
-        -4px -4px var(--color-submit-2), 0px -8px var(--color-submit-2),
-        4px -4px var(--color-submit-2), -4px -8px var(--color-submit-1),
-        4px -8px var(--color-submit-1), 8px 4px var(--color-white),
-        8px 8px var(--color-white), -8px 8px var(--color-white),
-        -4px 12px var(--color-white), -8px 4px var(--color-white),
-        -8px 0px var(--color-white), -4px 8px var(--color-white),
-        8px -4px var(--color-white), -8px -4px var(--color-white),
-        8px 0px var(--color-white), 0px -12px var(--color-submit-1);
+    box-shadow: 0px 4px var(--color-submit-2), 4px 0px var(--color-submit-2), -4px 0px var(--color-submit-2), 0px -4px var(--color-submit-2),
+        0px 8px var(--color-submit-3), 4px 4px var(--color-submit-3), -4px 4px var(--color-submit-3), 0 12px var(--color-white), 4px 12px var(--color-white),
+        -4px 4px var(--color-white), -4px -4px var(--color-submit-2), 0px -8px var(--color-submit-2), 4px -4px var(--color-submit-2),
+        -4px -8px var(--color-submit-1), 4px -8px var(--color-submit-1), 8px 4px var(--color-white), 8px 8px var(--color-white), -8px 8px var(--color-white),
+        -4px 12px var(--color-white), -8px 4px var(--color-white), -8px 0px var(--color-white), -4px 8px var(--color-white), 8px -4px var(--color-white),
+        -8px -4px var(--color-white), 8px 0px var(--color-white), 0px -12px var(--color-submit-1);
 }
 
 .sudoku__table input:focus {
@@ -174,20 +146,12 @@ input {
     height: 36px;
     background-color: var(--color-submit-3);
     text-align: center;
-    box-shadow: 4px 4px var(--color-submit-3), -4px 4px var(--color-submit-3),
-        0px 4px var(--color-submit-3), 4px 0px var(--color-submit-4),
-        -4px 0px var(--color-submit-4), 0px -4px var(--color-submit-4),
-        0px 8px var(--color-submit-3), 4px 4px var(--color-submit-4),
-        -4px 4px var(--color-submit-4), 0 12px var(--color-white),
-        4px 12px var(--color-white), -4px 4px var(--color-white),
-        -4px -4px var(--color-white), 0px -8px var(--color-white),
-        4px -4px var(--color-white), -4px -8px var(--color-white),
-        4px -8px var(--color-white), 8px 4px var(--color-white),
-        8px 8px var(--color-white), -8px 8px var(--color-white),
-        -4px 12px var(--color-white), -8px 4px var(--color-white),
-        -8px 0px var(--color-white), -4px 8px var(--color-white),
-        8px -4px var(--color-white), -8px -4px var(--color-white),
-        8px 0px var(--color-white);
+    box-shadow: 4px 4px var(--color-submit-3), -4px 4px var(--color-submit-3), 0px 4px var(--color-submit-3), 4px 0px var(--color-submit-4),
+        -4px 0px var(--color-submit-4), 0px -4px var(--color-submit-4), 0px 8px var(--color-submit-3), 4px 4px var(--color-submit-4),
+        -4px 4px var(--color-submit-4), 0 12px var(--color-white), 4px 12px var(--color-white), -4px 4px var(--color-white), -4px -4px var(--color-white),
+        0px -8px var(--color-white), 4px -4px var(--color-white), -4px -8px var(--color-white), 4px -8px var(--color-white), 8px 4px var(--color-white),
+        8px 8px var(--color-white), -8px 8px var(--color-white), -4px 12px var(--color-white), -8px 4px var(--color-white), -8px 0px var(--color-white),
+        -4px 8px var(--color-white), 8px -4px var(--color-white), -8px -4px var(--color-white), 8px 0px var(--color-white);
     padding-top: 4px;
 }
 
@@ -195,71 +159,49 @@ input {
     font-size: 24px;
     margin-top: 36px;
     background-color: var(--color-white);
-    box-shadow: -8px 0px var(--color-white), 8px 0px var(--color-white),
-        0px -12px var(--color-white), 0px 12px var(--color-white);
+    box-shadow: -8px 0px var(--color-white), 8px 0px var(--color-white), 0px -12px var(--color-white), 0px 12px var(--color-white);
 }
 
 .shadow__algorithm {
-    box-shadow: 0px 4px var(--color-gray-1), 4px 0px var(--color-gray-1),
-        -4px 0px var(--color-gray-1), 0px -4px var(--color-gray-1),
-        0px 8px var(--color-gray-7), 4px 4px var(--color-gray-7),
-        -4px -4px var(--color-gray-1), 0px -8px var(--color-gray-1),
-        4px -4px var(--color-gray-1), -4px -8px var(--color-gray-2),
-        0px -12px var(--color-gray-2);
+    box-shadow: 0px 4px var(--color-gray-1), 4px 0px var(--color-gray-1), -4px 0px var(--color-gray-1), 0px -4px var(--color-gray-1),
+        0px 8px var(--color-gray-7), 4px 4px var(--color-gray-7), -4px -4px var(--color-gray-1), 0px -8px var(--color-gray-1), 4px -4px var(--color-gray-1),
+        -4px -8px var(--color-gray-2), 0px -12px var(--color-gray-2);
 
     background-color: var(--color-gray-1);
 }
 
 .shadow__algorithm-disable {
-    box-shadow: 0 4px var(--color-gray-7), 4px 0px var(--color-gray-7),
-        0px -4px var(--color-gray-7), -4px 0px var(--color-gray-7);
+    box-shadow: 0 4px var(--color-gray-7), 4px 0px var(--color-gray-7), 0px -4px var(--color-gray-7), -4px 0px var(--color-gray-7);
 }
 
 .shadow-break {
-    box-shadow: 0 1px var(--color-white), 1px 0px var(--color-white),
-        0px -1px var(--color-white), -1px 0px var(--color-white);
+    box-shadow: 0 1px var(--color-white), 1px 0px var(--color-white), 0px -1px var(--color-white), -1px 0px var(--color-white);
 }
 
 .shadow-difficulty-title {
-    box-shadow: 0 2px var(--color-gray-1), -2px 0px var(--color-gray-1),
-        2px 0px var(--color-gray-1);
+    box-shadow: 0 2px var(--color-gray-1), -2px 0px var(--color-gray-1), 2px 0px var(--color-gray-1);
 }
 
 .shadow__github {
     outline: none;
     width: 40px;
     background-color: var(--color-github-2);
-    box-shadow: 0px 4px var(--color-github-2), 4px 0px var(--color-github-2),
-        -4px 0px var(--color-github-2), 0px -4px var(--color-github-2),
-        0px 8px var(--color-github-3), 4px 4px var(--color-github-3),
-        -4px 4px var(--color-github-3), 0 12px var(--color-white),
-        4px 12px var(--color-white), -4px 4px var(--color-white),
-        -4px -4px var(--color-github-2), 0px -8px var(--color-github-2),
-        4px -4px var(--color-github-2), -4px -8px var(--color-github-1),
-        4px -8px var(--color-github-1), 8px 4px var(--color-white),
-        8px 8px var(--color-white), -8px 8px var(--color-white),
-        -4px 12px var(--color-white), -8px 4px var(--color-white),
-        -8px 0px var(--color-white), -4px 8px var(--color-white),
-        8px -4px var(--color-white), -8px -4px var(--color-white),
-        8px 0px var(--color-white), 0px -12px var(--color-github-1);
+    box-shadow: 0px 4px var(--color-github-2), 4px 0px var(--color-github-2), -4px 0px var(--color-github-2), 0px -4px var(--color-github-2),
+        0px 8px var(--color-github-3), 4px 4px var(--color-github-3), -4px 4px var(--color-github-3), 0 12px var(--color-white), 4px 12px var(--color-white),
+        -4px 4px var(--color-white), -4px -4px var(--color-github-2), 0px -8px var(--color-github-2), 4px -4px var(--color-github-2),
+        -4px -8px var(--color-github-1), 4px -8px var(--color-github-1), 8px 4px var(--color-white), 8px 8px var(--color-white), -8px 8px var(--color-white),
+        -4px 12px var(--color-white), -8px 4px var(--color-white), -8px 0px var(--color-white), -4px 8px var(--color-white), 8px -4px var(--color-white),
+        -8px -4px var(--color-white), 8px 0px var(--color-white), 0px -12px var(--color-github-1);
 }
 
 .shadow__github:active {
     background-color: var(--color-github-3);
-    box-shadow: 4px 4px var(--color-github-3), -4px 4px var(--color-github-3),
-        0px 4px var(--color-github-3), 4px 0px var(--color-github-4),
-        -4px 0px var(--color-github-4), 0px -4px var(--color-github-4),
-        0px 8px var(--color-github-3), 4px 4px var(--color-github-4),
-        -4px 4px var(--color-github-4), 0 12px var(--color-white),
-        4px 12px var(--color-white), -4px 4px var(--color-white),
-        -4px -4px var(--color-white), 0px -8px var(--color-white),
-        4px -4px var(--color-white), -4px -8px var(--color-white),
-        4px -8px var(--color-white), 8px 4px var(--color-white),
-        8px 8px var(--color-white), -8px 8px var(--color-white),
-        -4px 12px var(--color-white), -8px 4px var(--color-white),
-        -8px 0px var(--color-white), -4px 8px var(--color-white),
-        8px -4px var(--color-white), -8px -4px var(--color-white),
-        8px 0px var(--color-white);
+    box-shadow: 4px 4px var(--color-github-3), -4px 4px var(--color-github-3), 0px 4px var(--color-github-3), 4px 0px var(--color-github-4),
+        -4px 0px var(--color-github-4), 0px -4px var(--color-github-4), 0px 8px var(--color-github-3), 4px 4px var(--color-github-4),
+        -4px 4px var(--color-github-4), 0 12px var(--color-white), 4px 12px var(--color-white), -4px 4px var(--color-white), -4px -4px var(--color-white),
+        0px -8px var(--color-white), 4px -4px var(--color-white), -4px -8px var(--color-white), 4px -8px var(--color-white), 8px 4px var(--color-white),
+        8px 8px var(--color-white), -8px 8px var(--color-white), -4px 12px var(--color-white), -8px 4px var(--color-white), -8px 0px var(--color-white),
+        -4px 8px var(--color-white), 8px -4px var(--color-white), -8px -4px var(--color-white), 8px 0px var(--color-white);
     padding-top: 4px;
 }
 
@@ -267,37 +209,22 @@ input {
     outline: none;
     width: 40px;
     background-color: var(--color-x-2);
-    box-shadow: 0px 4px var(--color-x-2), 4px 0px var(--color-x-2),
-        -4px 0px var(--color-x-2), 0px -4px var(--color-x-2),
-        0px 8px var(--color-x-3), 4px 4px var(--color-x-3),
-        -4px 4px var(--color-x-3), 0 12px var(--color-white),
-        4px 12px var(--color-white), -4px 4px var(--color-white),
-        -4px -4px var(--color-x-2), 0px -8px var(--color-x-2),
-        4px -4px var(--color-x-2), -4px -8px var(--color-x-1),
-        4px -8px var(--color-x-1), 8px 4px var(--color-white),
-        8px 8px var(--color-white), -8px 8px var(--color-white),
-        -4px 12px var(--color-white), -8px 4px var(--color-white),
-        -8px 0px var(--color-white), -4px 8px var(--color-white),
-        8px -4px var(--color-white), -8px -4px var(--color-white),
-        8px 0px var(--color-white), 0px -12px var(--color-x-1);
+    box-shadow: 0px 4px var(--color-x-2), 4px 0px var(--color-x-2), -4px 0px var(--color-x-2), 0px -4px var(--color-x-2), 0px 8px var(--color-x-3),
+        4px 4px var(--color-x-3), -4px 4px var(--color-x-3), 0 12px var(--color-white), 4px 12px var(--color-white), -4px 4px var(--color-white),
+        -4px -4px var(--color-x-2), 0px -8px var(--color-x-2), 4px -4px var(--color-x-2), -4px -8px var(--color-x-1), 4px -8px var(--color-x-1),
+        8px 4px var(--color-white), 8px 8px var(--color-white), -8px 8px var(--color-white), -4px 12px var(--color-white), -8px 4px var(--color-white),
+        -8px 0px var(--color-white), -4px 8px var(--color-white), 8px -4px var(--color-white), -8px -4px var(--color-white), 8px 0px var(--color-white),
+        0px -12px var(--color-x-1);
 }
 
 .shadow__x:active {
     background-color: var(--color-x-3);
-    box-shadow: 4px 4px var(--color-x-3), -4px 4px var(--color-x-3),
-        0px 4px var(--color-x-3), 4px 0px var(--color-x-4),
-        -4px 0px var(--color-x-4), 0px -4px var(--color-x-4),
-        0px 8px var(--color-x-3), 4px 4px var(--color-x-4),
-        -4px 4px var(--color-x-4), 0 12px var(--color-white),
-        4px 12px var(--color-white), -4px 4px var(--color-white),
-        -4px -4px var(--color-white), 0px -8px var(--color-white),
-        4px -4px var(--color-white), -4px -8px var(--color-white),
-        4px -8px var(--color-white), 8px 4px var(--color-white),
-        8px 8px var(--color-white), -8px 8px var(--color-white),
-        -4px 12px var(--color-white), -8px 4px var(--color-white),
-        -8px 0px var(--color-white), -4px 8px var(--color-white),
-        8px -4px var(--color-white), -8px -4px var(--color-white),
-        8px 0px var(--color-white);
+    box-shadow: 4px 4px var(--color-x-3), -4px 4px var(--color-x-3), 0px 4px var(--color-x-3), 4px 0px var(--color-x-4), -4px 0px var(--color-x-4),
+        0px -4px var(--color-x-4), 0px 8px var(--color-x-3), 4px 4px var(--color-x-4), -4px 4px var(--color-x-4), 0 12px var(--color-white),
+        4px 12px var(--color-white), -4px 4px var(--color-white), -4px -4px var(--color-white), 0px -8px var(--color-white), 4px -4px var(--color-white),
+        -4px -8px var(--color-white), 4px -8px var(--color-white), 8px 4px var(--color-white), 8px 8px var(--color-white), -8px 8px var(--color-white),
+        -4px 12px var(--color-white), -8px 4px var(--color-white), -8px 0px var(--color-white), -4px 8px var(--color-white), 8px -4px var(--color-white),
+        -8px -4px var(--color-white), 8px 0px var(--color-white);
     padding-top: 4px;
 }
 
@@ -335,13 +262,11 @@ input {
     -webkit-transition: 0.4s;
     transition: 0.4s;
 
-    box-shadow: 0px -2px var(--color-submit-2), 0px 2px var(--color-submit-2),
-        2px 0px var(--color-submit-2), -2px 0px var(--color-submit-2);
+    box-shadow: 0px -2px var(--color-submit-2), 0px 2px var(--color-submit-2), 2px 0px var(--color-submit-2), -2px 0px var(--color-submit-2);
 }
 
 .slider:before {
-    box-shadow: 0px -2px var(--color-white), 0px 2px var(--color-white),
-        2px 0px var(--color-white), -2px 0px var(--color-white);
+    box-shadow: 0px -2px var(--color-white), 0px 2px var(--color-white), 2px 0px var(--color-white), -2px 0px var(--color-white);
     position: absolute;
     content: "";
     height: 20px;
@@ -371,210 +296,143 @@ input:checked + .slider:before {
     outline: none;
     width: 40px;
     background-color: var(--color-information-2);
-    box-shadow: 0px 3px var(--color-information-2),
-        3px 0px var(--color-information-2), -3px 0px var(--color-information-2),
-        0px -3px var(--color-information-2), 0px 6px var(--color-information-3),
-        3px 3px var(--color-information-3), -3px 3px var(--color-information-3),
-        0 9px var(--color-white), 3px 9px var(--color-white),
-        -3px 3px var(--color-white), -3px -3px var(--color-information-2),
-        0px -6px var(--color-information-2), 3px -3px var(--color-information-2),
-        -3px -6px var(--color-information-1),
-        3px -6px var(--color-information-1), 6px 3px var(--color-white),
-        6px 6px var(--color-white), -6px 6px var(--color-white),
-        -3px 9px var(--color-white), -6px 3px var(--color-white),
-        -6px 0px var(--color-white), -3px 6px var(--color-white),
-        6px -3px var(--color-white), -6px -3px var(--color-white),
-        6px 0px var(--color-white), 0px -9px var(--color-information-1);
+    box-shadow: 0px 3px var(--color-information-2), 3px 0px var(--color-information-2), -3px 0px var(--color-information-2), 0px -3px var(--color-information-2),
+        0px 6px var(--color-information-3), 3px 3px var(--color-information-3), -3px 3px var(--color-information-3), 0 9px var(--color-white),
+        3px 9px var(--color-white), -3px 3px var(--color-white), -3px -3px var(--color-information-2), 0px -6px var(--color-information-2),
+        3px -3px var(--color-information-2), -3px -6px var(--color-information-1), 3px -6px var(--color-information-1), 6px 3px var(--color-white),
+        6px 6px var(--color-white), -6px 6px var(--color-white), -3px 9px var(--color-white), -6px 3px var(--color-white), -6px 0px var(--color-white),
+        -3px 6px var(--color-white), 6px -3px var(--color-white), -6px -3px var(--color-white), 6px 0px var(--color-white), 0px -9px var(--color-information-1);
     margin-left: 340px;
 }
 
 .help__generator:active {
     background-color: var(--color-information-3);
-    box-shadow: 3px 3px var(--color-information-3),
-        -3px 3px var(--color-information-3), 0px 3px var(--color-information-3),
-        3px 0px var(--color-information-4), -3px 0px var(--color-information-4),
-        0px -3px var(--color-information-4), 0px 6px var(--color-information-3),
-        3px 3px var(--color-information-4), -3px 3px var(--color-information-4),
-        0 9px var(--color-white), 3px 9px var(--color-white),
-        -3px 3px var(--color-white), -3px -3px var(--color-white),
-        0px -6px var(--color-white), 3px -3px var(--color-white),
-        -3px -6px var(--color-white), 3px -6px var(--color-white),
-        6px 3px var(--color-white), 6px 6px var(--color-white),
-        -6px 6px var(--color-white), -3px 9px var(--color-white),
-        -6px 3px var(--color-white), -6px 0px var(--color-white),
-        -3px 6px var(--color-white), 6px -3px var(--color-white),
-        -6px -3px var(--color-white), 6px 0px var(--color-white);
+    box-shadow: 3px 3px var(--color-information-3), -3px 3px var(--color-information-3), 0px 3px var(--color-information-3), 3px 0px var(--color-information-4),
+        -3px 0px var(--color-information-4), 0px -3px var(--color-information-4), 0px 6px var(--color-information-3), 3px 3px var(--color-information-4),
+        -3px 3px var(--color-information-4), 0 9px var(--color-white), 3px 9px var(--color-white), -3px 3px var(--color-white), -3px -3px var(--color-white),
+        0px -6px var(--color-white), 3px -3px var(--color-white), -3px -6px var(--color-white), 3px -6px var(--color-white), 6px 3px var(--color-white),
+        6px 6px var(--color-white), -6px 6px var(--color-white), -3px 9px var(--color-white), -6px 3px var(--color-white), -6px 0px var(--color-white),
+        -3px 6px var(--color-white), 6px -3px var(--color-white), -6px -3px var(--color-white), 6px 0px var(--color-white);
     padding-top: 3px;
 }
 
 .shadow__switch {
-    box-shadow: 0px -8px var(--color-white), 0px 8px var(--color-white),
-        4px -8px var(--color-white), 4px 4px var(--color-white),
-        -4px -8px var(--color-white), -4px 4px var(--color-white);
+    box-shadow: 0px -8px var(--color-white), 0px 8px var(--color-white), 4px -8px var(--color-white), 4px 4px var(--color-white), -4px -8px var(--color-white),
+        -4px 4px var(--color-white);
     width: 255px;
 }
 
 .shadow__speed {
-    box-shadow: 0px -2px var(--color-submit-2), 0px 2px var(--color-submit-2),
-        2px 0px var(--color-submit-2), -2px 0px var(--color-submit-2);
+    box-shadow: 0px -2px var(--color-submit-2), 0px 2px var(--color-submit-2), 2px 0px var(--color-submit-2), -2px 0px var(--color-submit-2);
     background-color: var(--color-submit-2);
 }
 
 .shadow__speed:disabled {
-    box-shadow: 0px -2px var(--color-submit-4), 0px 2px var(--color-submit-4),
-        2px 0px var(--color-submit-4), -2px 0px var(--color-submit-4);
+    box-shadow: 0px -2px var(--color-submit-4), 0px 2px var(--color-submit-4), 2px 0px var(--color-submit-4), -2px 0px var(--color-submit-4);
     background-color: var(--color-submit-4);
 }
 
 .shadow__col__pointer {
-    box-shadow: 0px 4px var(--color-pointer-2), 4px 0px var(--color-pointer-2),
-        -4px 0px var(--color-pointer-2), 0px -4px var(--color-pointer-2),
-        -4px -4px var(--color-pointer-3), 0px -8px var(--color-pointer-3),
-        4px -4px var(--color-pointer-3), -4px -8px var(--color-pointer-4),
+    box-shadow: 0px 4px var(--color-pointer-2), 4px 0px var(--color-pointer-2), -4px 0px var(--color-pointer-2), 0px -4px var(--color-pointer-2),
+        -4px -4px var(--color-pointer-3), 0px -8px var(--color-pointer-3), 4px -4px var(--color-pointer-3), -4px -8px var(--color-pointer-4),
         0px -12px var(--color-pointer-4), 4px -8px var(--color-pointer-4);
 }
 
 .shadow__row__pointer {
-    box-shadow: 0px 4px var(--color-pointer-2), 4px 0px var(--color-pointer-2),
-        -4px 0px var(--color-pointer-2), 0px -4px var(--color-pointer-2),
-        -4px -4px var(--color-pointer-3), 0px -8px var(--color-pointer-3),
-        4px -4px var(--color-pointer-3), -4px -8px var(--color-pointer-4),
+    box-shadow: 0px 4px var(--color-pointer-2), 4px 0px var(--color-pointer-2), -4px 0px var(--color-pointer-2), 0px -4px var(--color-pointer-2),
+        -4px -4px var(--color-pointer-3), 0px -8px var(--color-pointer-3), 4px -4px var(--color-pointer-3), -4px -8px var(--color-pointer-4),
         0px -12px var(--color-pointer-4), 4px -8px var(--color-pointer-4);
 }
 
 .shadow__counter {
-    box-shadow: 0px 4px var(--color-pointer-2), 4px 0px var(--color-pointer-2),
-        -4px 0px var(--color-pointer-2), 0px -4px var(--color-pointer-2),
-        -4px -4px var(--color-pointer-3), 0px -8px var(--color-pointer-3),
-        4px -4px var(--color-pointer-3), -4px -8px var(--color-pointer-4),
+    box-shadow: 0px 4px var(--color-pointer-2), 4px 0px var(--color-pointer-2), -4px 0px var(--color-pointer-2), 0px -4px var(--color-pointer-2),
+        -4px -4px var(--color-pointer-3), 0px -8px var(--color-pointer-3), 4px -4px var(--color-pointer-3), -4px -8px var(--color-pointer-4),
         0px -12px var(--color-pointer-4), 4px -8px var(--color-pointer-4);
 }
 
 .difficulty__set {
-    box-shadow: 0px 4px var(--color-information-2),
-        4px 0px var(--color-information-2), -4px 0px var(--color-information-2),
-        0px -4px var(--color-information-2), 0px 8px var(--color-information-3),
-        4px 4px var(--color-information-3), -4px 4px var(--color-information-3),
-        0 12px var(--color-white), 4px 12px var(--color-white),
-        -4px 4px var(--color-white), -4px -4px var(--color-information-2),
-        0px -8px var(--color-information-2), 4px -4px var(--color-information-2),
-        -4px -8px var(--color-information-1),
-        4px -8px var(--color-information-1), 8px 4px var(--color-white),
-        8px 8px var(--color-white), -8px 8px var(--color-white),
-        -8px 0px var(--color-white), -4px 8px var(--color-white),
-        8px -4px var(--color-white), -8px -4px var(--color-white),
-        8px -4px var(--color-white), -4px 12px var(--color-white),
-        8px 0px var(--color-white), 0px -12px var(--color-information-1);
+    box-shadow: 0px 4px var(--color-information-2), 4px 0px var(--color-information-2), -4px 0px var(--color-information-2), 0px -4px var(--color-information-2),
+        0px 8px var(--color-information-3), 4px 4px var(--color-information-3), -4px 4px var(--color-information-3), 0 12px var(--color-white),
+        4px 12px var(--color-white), -4px 4px var(--color-white), -4px -4px var(--color-information-2), 0px -8px var(--color-information-2),
+        4px -4px var(--color-information-2), -4px -8px var(--color-information-1), 4px -8px var(--color-information-1), 8px 4px var(--color-white),
+        8px 8px var(--color-white), -8px 8px var(--color-white), -8px 0px var(--color-white), -4px 8px var(--color-white), 8px -4px var(--color-white),
+        -8px -4px var(--color-white), 8px -4px var(--color-white), -4px 12px var(--color-white), 8px 0px var(--color-white),
+        0px -12px var(--color-information-1);
     background-color: var(--color-information-2);
 }
 
 .difficulty__set__next {
-    box-shadow: 4px 4px var(--color-white), 4px -4px var(--color-white),
-        -4px 4px var(--color-white), -4px -4px var(--color-white);
+    box-shadow: 4px 4px var(--color-white), 4px -4px var(--color-white), -4px 4px var(--color-white), -4px -4px var(--color-white);
 }
 
 .difficulty__set__pre {
-    box-shadow: 4px 4px var(--color-white), 4px -4px var(--color-white),
-        -4px 4px var(--color-white), -4px -4px var(--color-white);
+    box-shadow: 4px 4px var(--color-white), 4px -4px var(--color-white), -4px 4px var(--color-white), -4px -4px var(--color-white);
 }
 
 .trash__button {
-    box-shadow: 0px -4px var(--color-white), 0px 4px var(--color-white),
-        4px 0px var(--color-white);
+    box-shadow: 0px -4px var(--color-white), 0px 4px var(--color-white), 4px 0px var(--color-white);
 }
 
 .time__spend__container {
-    box-shadow: 0px 4px var(--color-information-2),
-        4px 0px var(--color-information-2), -4px 0px var(--color-information-2),
-        0px -4px var(--color-information-2), 0px 8px var(--color-information-3),
-        4px 4px var(--color-information-3), -4px 4px var(--color-information-3),
-        0 12px var(--color-white), 4px 12px var(--color-white),
-        -4px 4px var(--color-white), -4px -4px var(--color-information-2),
-        0px -8px var(--color-information-2), 4px -4px var(--color-information-2),
-        -4px -8px var(--color-information-1),
-        4px -8px var(--color-information-1), 8px 4px var(--color-white),
-        8px 8px var(--color-white), -8px 8px var(--color-white),
-        -8px 0px var(--color-white), -4px 8px var(--color-white),
-        8px -4px var(--color-white), -8px -4px var(--color-white),
-        8px -4px var(--color-white), -4px 12px var(--color-white),
-        8px 0px var(--color-white), 0px -12px var(--color-information-1);
+    box-shadow: 0px 4px var(--color-information-2), 4px 0px var(--color-information-2), -4px 0px var(--color-information-2), 0px -4px var(--color-information-2),
+        0px 8px var(--color-information-3), 4px 4px var(--color-information-3), -4px 4px var(--color-information-3), 0 12px var(--color-white),
+        4px 12px var(--color-white), -4px 4px var(--color-white), -4px -4px var(--color-information-2), 0px -8px var(--color-information-2),
+        4px -4px var(--color-information-2), -4px -8px var(--color-information-1), 4px -8px var(--color-information-1), 8px 4px var(--color-white),
+        8px 8px var(--color-white), -8px 8px var(--color-white), -8px 0px var(--color-white), -4px 8px var(--color-white), 8px -4px var(--color-white),
+        -8px -4px var(--color-white), 8px -4px var(--color-white), -4px 12px var(--color-white), 8px 0px var(--color-white),
+        0px -12px var(--color-information-1);
     background-color: var(--color-information-2);
 }
 
 .time__spend__text {
-    box-shadow: 0px -4px var(--color-white), 4px 0px var(--color-white),
-        -4px 0px var(--color-white);
+    box-shadow: 0px -4px var(--color-white), 4px 0px var(--color-white), -4px 0px var(--color-white);
 }
 
 .iterations__text {
-    box-shadow: 0px -4px var(--color-white), 4px 0px var(--color-white),
-        -4px 0px var(--color-white);
+    box-shadow: 0px -4px var(--color-white), 4px 0px var(--color-white), -4px 0px var(--color-white);
 }
 
 .iterations__container {
-    box-shadow: 0px 4px var(--color-information-2),
-        4px 0px var(--color-information-2), -4px 0px var(--color-information-2),
-        0px -4px var(--color-information-2), 0px 8px var(--color-information-3),
-        4px 4px var(--color-information-3), -4px 4px var(--color-information-3),
-        0 12px var(--color-white), 4px 12px var(--color-white),
-        -4px 4px var(--color-white), -4px -4px var(--color-information-2),
-        0px -8px var(--color-information-2), 4px -4px var(--color-information-2),
-        -4px -8px var(--color-information-1),
-        4px -8px var(--color-information-1), 8px 4px var(--color-white),
-        8px 8px var(--color-white), -8px 8px var(--color-white),
-        -8px 0px var(--color-white), -4px 8px var(--color-white),
-        8px -4px var(--color-white), -8px -4px var(--color-white),
-        8px -4px var(--color-white), -4px 12px var(--color-white),
-        8px 0px var(--color-white), 0px -12px var(--color-information-1);
+    box-shadow: 0px 4px var(--color-information-2), 4px 0px var(--color-information-2), -4px 0px var(--color-information-2), 0px -4px var(--color-information-2),
+        0px 8px var(--color-information-3), 4px 4px var(--color-information-3), -4px 4px var(--color-information-3), 0 12px var(--color-white),
+        4px 12px var(--color-white), -4px 4px var(--color-white), -4px -4px var(--color-information-2), 0px -8px var(--color-information-2),
+        4px -4px var(--color-information-2), -4px -8px var(--color-information-1), 4px -8px var(--color-information-1), 8px 4px var(--color-white),
+        8px 8px var(--color-white), -8px 8px var(--color-white), -8px 0px var(--color-white), -4px 8px var(--color-white), 8px -4px var(--color-white),
+        -8px -4px var(--color-white), 8px -4px var(--color-white), -4px 12px var(--color-white), 8px 0px var(--color-white),
+        0px -12px var(--color-information-1);
     background-color: var(--color-information-2);
 }
 
 .setting__option {
-    box-shadow: 0px -4px var(--color-github-2), 0px 4px var(--color-github-2),
-        4px 0px var(--color-github-2), -4px 0px var(--color-github-2),
-        -4px 4px var(--color-github-2), -4px -4px var(--color-github-2),
-        4px 4px var(--color-github-2), 4px -4px var(--color-github-2),
-        -8px 0px var(--color-github-2), -8px 4px var(--color-github-3),
-        -4px 8px var(--color-github-3), 4px 8px var(--color-github-3),
-        8px 0px var(--color-github-2), 8px 4px var(--color-github-3),
-        4px -8px var(--color-github-1), -4px -8px var(--color-github-1),
+    box-shadow: 0px -4px var(--color-github-2), 0px 4px var(--color-github-2), 4px 0px var(--color-github-2), -4px 0px var(--color-github-2),
+        -4px 4px var(--color-github-2), -4px -4px var(--color-github-2), 4px 4px var(--color-github-2), 4px -4px var(--color-github-2),
+        -8px 0px var(--color-github-2), -8px 4px var(--color-github-3), -4px 8px var(--color-github-3), 4px 8px var(--color-github-3),
+        8px 0px var(--color-github-2), 8px 4px var(--color-github-3), 4px -8px var(--color-github-1), -4px -8px var(--color-github-1),
         -8px -4px var(--color-github-1), 8px -4px var(--color-github-1);
     background-color: var(--color-github-2);
 }
 
 .line__input {
-    box-shadow: 0px -4px var(--color-github-2), 0px 4px var(--color-github-2),
-        4px 0px var(--color-github-2), -4px 0px var(--color-github-2),
-        -4px 4px var(--color-github-2), -4px -4px var(--color-github-2),
-        4px 4px var(--color-github-2), 4px -4px var(--color-github-2),
-        -8px 0px var(--color-github-2), -8px 4px var(--color-github-3),
-        -4px 8px var(--color-github-3), 4px 8px var(--color-github-3),
-        8px 0px var(--color-github-2), 8px 4px var(--color-github-3),
-        4px -8px var(--color-github-1), -4px -8px var(--color-github-1),
+    box-shadow: 0px -4px var(--color-github-2), 0px 4px var(--color-github-2), 4px 0px var(--color-github-2), -4px 0px var(--color-github-2),
+        -4px 4px var(--color-github-2), -4px -4px var(--color-github-2), 4px 4px var(--color-github-2), 4px -4px var(--color-github-2),
+        -8px 0px var(--color-github-2), -8px 4px var(--color-github-3), -4px 8px var(--color-github-3), 4px 8px var(--color-github-3),
+        8px 0px var(--color-github-2), 8px 4px var(--color-github-3), 4px -8px var(--color-github-1), -4px -8px var(--color-github-1),
         -8px -4px var(--color-github-1), 8px -4px var(--color-github-1);
     background-color: var(--color-github-2);
 }
 
 .text__temperature {
-    box-shadow: 4px 0px var(--color-github-3), -4px 0px var(--color-github-3),
-        0px 4px var(--color-github-3);
+    box-shadow: 4px 0px var(--color-github-3), -4px 0px var(--color-github-3), 0px 4px var(--color-github-3);
     background-color: var(--color-github-3);
 }
 
 .reset__button {
-    box-shadow: 0px 4px var(--color-submit-2), 4px 0px var(--color-submit-2),
-        -4px 0px var(--color-submit-2), 0px -4px var(--color-submit-2),
-        0px 8px var(--color-submit-3), 4px 4px var(--color-submit-3),
-        -4px 4px var(--color-submit-3), 0 12px var(--color-white),
-        4px 12px var(--color-white), -4px 4px var(--color-white),
-        -4px -4px var(--color-submit-2), 0px -8px var(--color-submit-2),
-        4px -4px var(--color-submit-2), -4px -8px var(--color-submit-1),
-        4px -8px var(--color-submit-1), 8px 4px var(--color-white),
-        8px 8px var(--color-white), -8px 8px var(--color-white),
-        -4px 12px var(--color-white), -8px 4px var(--color-white),
-        -8px 0px var(--color-white), -4px 8px var(--color-white),
-        8px -4px var(--color-white), -8px -4px var(--color-white),
-        8px 0px var(--color-white), 0px -12px var(--color-submit-1);
+    box-shadow: 0px 4px var(--color-submit-2), 4px 0px var(--color-submit-2), -4px 0px var(--color-submit-2), 0px -4px var(--color-submit-2),
+        0px 8px var(--color-submit-3), 4px 4px var(--color-submit-3), -4px 4px var(--color-submit-3), 0 12px var(--color-white), 4px 12px var(--color-white),
+        -4px 4px var(--color-white), -4px -4px var(--color-submit-2), 0px -8px var(--color-submit-2), 4px -4px var(--color-submit-2),
+        -4px -8px var(--color-submit-1), 4px -8px var(--color-submit-1), 8px 4px var(--color-white), 8px 8px var(--color-white), -8px 8px var(--color-white),
+        -4px 12px var(--color-white), -8px 4px var(--color-white), -8px 0px var(--color-white), -4px 8px var(--color-white), 8px -4px var(--color-white),
+        -8px -4px var(--color-white), 8px 0px var(--color-white), 0px -12px var(--color-submit-1);
 
     background-color: var(--color-submit-2);
 }
@@ -582,20 +440,12 @@ input:checked + .slider:before {
 .reset__button:active {
     background-color: var(--color-submit-3);
     text-align: center;
-    box-shadow: 4px 4px var(--color-submit-3), -4px 4px var(--color-submit-3),
-        0px 4px var(--color-submit-3), 4px 0px var(--color-submit-4),
-        -4px 0px var(--color-submit-4), 0px -4px var(--color-submit-4),
-        0px 8px var(--color-submit-3), 4px 4px var(--color-submit-4),
-        -4px 4px var(--color-submit-4), 0 12px var(--color-white),
-        4px 12px var(--color-white), -4px 4px var(--color-white),
-        -4px -4px var(--color-white), 0px -8px var(--color-white),
-        4px -4px var(--color-white), -4px -8px var(--color-white),
-        4px -8px var(--color-white), 8px 4px var(--color-white),
-        8px 8px var(--color-white), -8px 8px var(--color-white),
-        -4px 12px var(--color-white), -8px 4px var(--color-white),
-        -8px 0px var(--color-white), -4px 8px var(--color-white),
-        8px -4px var(--color-white), -8px -4px var(--color-white),
-        8px 0px var(--color-white);
+    box-shadow: 4px 4px var(--color-submit-3), -4px 4px var(--color-submit-3), 0px 4px var(--color-submit-3), 4px 0px var(--color-submit-4),
+        -4px 0px var(--color-submit-4), 0px -4px var(--color-submit-4), 0px 8px var(--color-submit-3), 4px 4px var(--color-submit-4),
+        -4px 4px var(--color-submit-4), 0 12px var(--color-white), 4px 12px var(--color-white), -4px 4px var(--color-white), -4px -4px var(--color-white),
+        0px -8px var(--color-white), 4px -4px var(--color-white), -4px -8px var(--color-white), 4px -8px var(--color-white), 8px 4px var(--color-white),
+        8px 8px var(--color-white), -8px 8px var(--color-white), -4px 12px var(--color-white), -8px 4px var(--color-white), -8px 0px var(--color-white),
+        -4px 8px var(--color-white), 8px -4px var(--color-white), -8px -4px var(--color-white), 8px 0px var(--color-white);
     padding-top: 4px;
 }
 
@@ -604,32 +454,20 @@ input:checked + .slider:before {
     height: 36px;
     background-color: var(--color-error-2);
     text-align: center;
-    box-shadow: 4px 4px var(--color-error-2), -4px 4px var(--color-error-2),
-        0px 4px var(--color-error-2), 4px 0px var(--color-error-3),
-        -4px 0px var(--color-error-3), 0px -4px var(--color-error-3),
-        0px 8px var(--color-error-2), 4px 4px var(--color-error-3),
-        -4px 4px var(--color-error-3), 0 12px var(--color-white),
-        4px 12px var(--color-white), -4px 4px var(--color-white),
-        -4px -4px var(--color-white), 0px -8px var(--color-white),
-        4px -4px var(--color-white), -4px -8px var(--color-white),
-        4px -8px var(--color-white), 8px 4px var(--color-white),
-        8px 8px var(--color-white), -8px 8px var(--color-white),
-        -4px 12px var(--color-white), -8px 4px var(--color-white),
-        -8px 0px var(--color-white), -4px 8px var(--color-white),
-        8px -4px var(--color-white), -8px -4px var(--color-white),
-        8px 0px var(--color-white);
+    box-shadow: 4px 4px var(--color-error-2), -4px 4px var(--color-error-2), 0px 4px var(--color-error-2), 4px 0px var(--color-error-3),
+        -4px 0px var(--color-error-3), 0px -4px var(--color-error-3), 0px 8px var(--color-error-2), 4px 4px var(--color-error-3), -4px 4px var(--color-error-3),
+        0 12px var(--color-white), 4px 12px var(--color-white), -4px 4px var(--color-white), -4px -4px var(--color-white), 0px -8px var(--color-white),
+        4px -4px var(--color-white), -4px -8px var(--color-white), 4px -8px var(--color-white), 8px 4px var(--color-white), 8px 8px var(--color-white),
+        -8px 8px var(--color-white), -4px 12px var(--color-white), -8px 4px var(--color-white), -8px 0px var(--color-white), -4px 8px var(--color-white),
+        8px -4px var(--color-white), -8px -4px var(--color-white), 8px 0px var(--color-white);
     padding-top: 4px;
     color: var(--color-white);
 }
 
 .error__info {
-    box-shadow: 0px -4px var(--color-error-2), 0px 4px var(--color-error-2),
-        4px 0px var(--color-error-2), -4px 0px var(--color-error-2),
-        -4px 4px var(--color-error-2), -4px -4px var(--color-error-2),
-        4px 4px var(--color-error-2), 4px -4px var(--color-error-2),
-        -8px 0px var(--color-error-2), -8px 4px var(--color-error-3),
-        -4px 8px var(--color-error-3), 4px 8px var(--color-error-3),
-        8px 0px var(--color-error-2), 8px 4px var(--color-error-3),
-        4px -8px var(--color-error-1), -4px -8px var(--color-error-1),
-        -8px -4px var(--color-error-1), 8px -4px var(--color-error-1);
+    box-shadow: 0px -4px var(--color-error-2), 0px 4px var(--color-error-2), 4px 0px var(--color-error-2), -4px 0px var(--color-error-2),
+        -4px 4px var(--color-error-2), -4px -4px var(--color-error-2), 4px 4px var(--color-error-2), 4px -4px var(--color-error-2),
+        -8px 0px var(--color-error-2), -8px 4px var(--color-error-3), -4px 8px var(--color-error-3), 4px 8px var(--color-error-3), 8px 0px var(--color-error-2),
+        8px 4px var(--color-error-3), 4px -8px var(--color-error-1), -4px -8px var(--color-error-1), -8px -4px var(--color-error-1),
+        8px -4px var(--color-error-1);
 }
