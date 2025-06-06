@@ -47,12 +47,12 @@
 /* FONTS */
 @font-face {
     font-family: "CrossyFont";
-    src: url("/public/src/fonts/8-BIT.TTF");
+    src: url("/public/fonts/8-BIT.TTF");
 }
 
 @font-face {
     font-family: "NumberFont";
-    src: url("./public/src/fonts/TimeburnerBold.ttf");
+    src: url("./public/fonts/TimeburnerBold.ttf");
 }
 
 * {
@@ -229,12 +229,12 @@ input {
 }
 
 .left__side {
-    background-image: url("/public/src/images/Back02.png");
+    background-image: url("/public/images/Back02.png");
     background-size: 360px;
 }
 
 .right__side {
-    background-image: url("/public/src/images/Back01.png");
+    background-image: url("/public/images/Back01.png");
     background-size: 360px;
 }
 

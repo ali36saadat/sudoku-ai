@@ -1,4 +1,4 @@
-import { backtracking, simulatedAnnealing, generator, elements, gridFormatter, lineFormatter } from "./module.js";
+import { backtracking, simulatedAnnealing, generator, elements, gridFormatter, lineFormatter } from "./src/scripts/module.js";
 
 let sudokuTable,
     isSubmit = false,

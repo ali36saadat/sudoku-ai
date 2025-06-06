@@ -1,6 +1,6 @@
-import { backtrackingAlgorithm } from "../src/scripts/backtracking.js";
-import { simulatedAnnealingAlgorithm } from "../src/scripts/simulatedAnnealing.js";
-import { sudokuSingleLineFunc } from "../src/scripts/sudokuGenerator.js";
+import { backtrackingAlgorithm } from "./backtracking.js";
+import { simulatedAnnealingAlgorithm } from "./simulatedAnnealing.js";
+import { sudokuSingleLineFunc } from "./sudokuGenerator.js";
 
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
