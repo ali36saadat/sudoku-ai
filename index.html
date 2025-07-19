@@ -5,9 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sudoku AI</title>
-    <link href="/src/style/tailwind.css" rel="stylesheet" />
-    <link href="/src/style/style.css" rel="stylesheet" />
-    <link rel="icon" type="image/x-icon" href="/public/images/KingDuck.png">
+    <link href="src/style/tailwind.css" rel="stylesheet" />
+    <link href="src/style/style.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="public/images/KingDuck.png">
 </head>
 
 <body>
@@ -21,14 +21,14 @@
                     <div class="col-span-3 flex items-center bg-white difficulty__setter mt-3 mb-1">
                         <button class="">
                             <img class="w-4 h mr-2 difficulty__set__pre difficulty__form__button"
-                                src="/public/images/PreIcon.png" alt="next" />
+                                src="public/images/PreIcon.png" alt="next" />
                         </button>
                         <div class="w-48 h-8 text-center pt-1 difficulty__set">
                             simple
                         </div>
                         <button>
                             <img class="w-4 h ml-2 difficulty__set__next difficulty__form__button"
-                                src="/public/images/NextIcon.png" alt="pre" />
+                                src="public/images/NextIcon.png" alt="pre" />
                         </button>
                     </div>
                     <div class="col-span-5 grid grid-cols-6 w-72 h-6 my-3 justify-items-center line__input hidden">
@@ -64,13 +64,13 @@
                     <button
                         class="grid grid-cols-5 text-sm w-64 h-6 content-center items-center my-3 shadow__algorithm algorithm__button algorithm__form__button algorithm__button--active"
                         title="backtracking">
-                        <img class="col-span-1 w-16" src="/public/images/Tick.png" alt="" />
+                        <img class="col-span-1 w-16" src="public/images/Tick.png" alt="" />
                         <span class="col-span-4 relative">Backtracking</span>
                     </button>
                     <button
                         class="grid grid-cols-5 text-sm w-64 h-6 content-center items-center my-3 shadow__algorithm algorithm__button algorithm__form__button"
                         title="simulatedAnnealing">
-                        <img class="col-span-1 w-16" src="/public/images/Tick.png" alt="" />
+                        <img class="col-span-1 w-16" src="public/images/Tick.png" alt="" />
                         <span class="col-span-4 relative text-xs">
                             Simulated Annealing
                         </span>
@@ -82,7 +82,7 @@
                     </button>
                     <button
                         class="col-span-2 bg-white text-2xl w-10 h-12 content-center -mt-12 ml-80 algorithm__form__button trash__button">
-                        <img class="w-8 mx-auto" src="/public/images/trashIcon.png" alt="trash" />
+                        <img class="w-8 mx-auto" src="public/images/trashIcon.png" alt="trash" />
                     </button>
                 </div>
                 <div class="w-96 h-1 bg-white mt-12 shadow-break"></div>
@@ -96,10 +96,10 @@
                             <div class="initial__temperature setting__option w-fit flex flex-row h-12">
                                 <div class="flex flex-col mr-2">
                                     <button class="w-fit mb-1 mt-1 up__temp setting__form__button">
-                                        <img class="w-4" src="/public/images/UpIcon.png" alt="upIcon" />
+                                        <img class="w-4" src="public/images/UpIcon.png" alt="upIcon" />
                                     </button>
                                     <button class="w-4 mt-1 down__temp setting__form__button">
-                                        <img class="w-4" src="/public/images/DownIcon.png" alt="downIcon" />
+                                        <img class="w-4" src="public/images/DownIcon.png" alt="downIcon" />
                                     </button>
                                 </div>
                                 <input type="number" class="w-36 h-10 my-auto bg-white text-black text-2xl input__temp"
@@ -113,10 +113,10 @@
                             <div class="cooling__rate setting__option w-fit flex flex-row h-12">
                                 <div class="flex flex-col mr-2">
                                     <button class="w-fit mb-1 mt-1 up__rate setting__form__button">
-                                        <img class="w-4" src="/public/images/UpIcon.png" alt="upIcon" />
+                                        <img class="w-4" src="public/images/UpIcon.png" alt="upIcon" />
                                     </button>
                                     <button class="w-4 mt-1 down__rate setting__form__button">
-                                        <img class="w-4" src="/public/images/DownIcon.png" alt="downIcon" />
+                                        <img class="w-4" src="public/images/DownIcon.png" alt="downIcon" />
                                     </button>
                                 </div>
                                 <input type="number" class="w-36 h-10 my-auto bg-white text-black text-2xl input__rate"
@@ -137,7 +137,7 @@
 
         <!--  START RIGHT SIDE  -->
         <div class="side side-right col-span-3 h-screen w-full right__side game__section">
-            <img src="/public/images/Soduko AI Logo.png" class="w-36 absolute" alt="" />
+            <img src="public/images/Soduko AI Logo.png" class="w-36 absolute" alt="" />
             <div class="grid grid-cols-9 grid-rows-9 w-fit gap-x-4 gap-y-6 justify-items-center sudoku__table mx-auto">
                 <input class="sudoku__cell" type="text" title="col-1 row-1" disabled />
                 <input class="sudoku__cell" type="text" title="col-1 row-2" disabled />
@@ -238,7 +238,7 @@
                     <div class="iterations__container w-44 h-8 text-center text-white"></div>
                 </div>
                 <div class="w-96 h-16 mx-auto mt-10 error__info grid grid-cols-5 bg-red-600 items-center px-3 hidden">
-                    <img class="w-12 h-fit my-auto" src="/public/images/DangerIcon.png" alt="DangerIcon" />
+                    <img class="w-12 h-fit my-auto" src="public/images/DangerIcon.png" alt="DangerIcon" />
 
                     <div class="error__text h-fit mx-auto text-center col-span-4 text-xs text-red-200"></div>
                 </div>
@@ -251,12 +251,12 @@
     <div class="flex flex-row items-center justify-center py-4 text-white bottom-0 absolute w-full">
         <a href="https://github.com/ali36saadat" target="_blank"
             class="col-span-3 text-2xl w-10 h-8 mx-3 content-center items-center shadow__github" title="Github">
-            <img src="/public/images/githubIcon.png" class="w-9 h-9 mx-auto" alt="github icon" />
+            <img src="public/images/githubIcon.png" class="w-9 h-9 mx-auto" alt="github icon" />
         </a>
 
         <a href="https://x.com/Ali36Saadat" target="_blank"
             class="col-span-3 text-2xl w-10 h-8 mx-3 content-center items-center shadow__x" title="X">
-            <img src="/public/images/xIcon.png" class="w-9 h-9 mx-auto" alt="x icon" />
+            <img src="public/images/xIcon.png" class="w-9 h-9 mx-auto" alt="x icon" />
         </a>
     </div>
 
